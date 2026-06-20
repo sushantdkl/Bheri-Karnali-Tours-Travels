@@ -3,6 +3,7 @@ import { PackageCard } from "@/components/packages/PackageCard";
 import { CTASection } from "@/components/shared/CTASection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { tourPackages } from "@/data/packages";
+import { getActiveTourPackages } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Karnali Tour Packages",
@@ -21,8 +22,9 @@ type PageProps = {
 
 export default async function PackagesPage({ searchParams }: PageProps) {
   const params = await searchParams;
+  const packages = await getActiveTourPackages(tourPackages);
   const q = params.q?.toLowerCase().trim();
-  const filtered = tourPackages.filter((tour) => {
+  const filtered = packages.filter((tour) => {
     const matchesSearch = !q || `${tour.title} ${tour.destination} ${tour.summary}`.toLowerCase().includes(q);
     const matchesDifficulty = !params.difficulty || tour.difficulty === params.difficulty;
     return matchesSearch && matchesDifficulty;

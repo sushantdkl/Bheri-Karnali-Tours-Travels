@@ -1,6 +1,7 @@
 import { faqs } from "@/data/faqs";
 import { testimonials } from "@/data/testimonials";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { getPublishedFAQs, getPublishedTestimonials } from "@/lib/cms";
 
 const support = [
   "Route guidance before booking",
@@ -32,13 +33,15 @@ export function SafetySupportSection() {
   );
 }
 
-export function TestimonialsSection() {
+export async function TestimonialsSection() {
+  const cmsTestimonials = await getPublishedTestimonials(testimonials);
+
   return (
     <section className="section-pad section-gradient">
       <div className="container-main">
         <SectionHeading eyebrow="Customer confidence" title="Helpful planning, reliable vehicles, local knowledge" align="center" />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {testimonials.map((item) => (
+          {cmsTestimonials.map((item) => (
             <article key={item.name} className="card p-6">
               <div className="mb-5 text-2xl font-black text-saffron">★★★★★</div>
               <p className="text-sm leading-7 text-navyInk/75">&ldquo;{item.quote}&rdquo;</p>
@@ -52,7 +55,8 @@ export function TestimonialsSection() {
   );
 }
 
-export function FAQSection() {
+export async function FAQSection() {
+  const cmsFaqs = await getPublishedFAQs(faqs);
   const groups = ["General", "Vehicle Rental", "Packages"] as const;
 
   return (
@@ -64,7 +68,7 @@ export function FAQSection() {
             <div key={group}>
               <h3 className="text-xl font-black text-navyInk">{group}</h3>
               <div className="mt-4 grid gap-4 md:grid-cols-2">
-                {faqs.filter((item) => item.category === group).map((item) => (
+                {cmsFaqs.filter((item) => item.category === group).map((item) => (
                   <article key={item.question} className="card p-5">
                     <h4 className="text-lg font-black text-navyInk">{item.question}</h4>
                     <p className="mt-3 text-sm leading-7 text-navyInk/68">{item.answer}</p>

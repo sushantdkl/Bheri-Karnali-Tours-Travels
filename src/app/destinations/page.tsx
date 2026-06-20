@@ -4,6 +4,7 @@ import { CTASection } from "@/components/shared/CTASection";
 import { ResponsiveImage } from "@/components/shared/ResponsiveImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { destinations } from "@/data/destinations";
+import { getActiveDestinations } from "@/lib/cms";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
   keywords: ["Karnali destinations", "Rara Lake tour", "Phoksundo Lake tour", "Karnali adventure travel"],
 };
 
-export default function DestinationsPage() {
+export default async function DestinationsPage() {
+  const destinationItems = await getActiveDestinations(destinations);
+
   return (
     <>
       <section className="section-pad section-gradient">
@@ -24,7 +27,7 @@ export default function DestinationsPage() {
             titleAs="h1"
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {destinations.map((destination) => (
+            {destinationItems.map((destination) => (
               <article key={destination.slug} className="card overflow-hidden">
                 <ResponsiveImage
                   src={destination.coverImage || destination.image}

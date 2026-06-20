@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ResponsiveImage } from "@/components/shared/ResponsiveImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { blogPosts } from "@/data/blog";
+import { getPublishedBlogPosts } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Karnali Travel Guide",
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
   keywords: ["Karnali travel guide", "Rara Lake tour guide", "Surkhet vehicle rental guide", "Karnali tour package"],
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getPublishedBlogPosts<typeof blogPosts[number]>(blogPosts);
+
   return (
     <section className="section-pad section-gradient">
       <div className="container-main">
@@ -22,7 +25,7 @@ export default function BlogPage() {
           titleAs="h1"
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article key={post.title} className="card overflow-hidden">
               <ResponsiveImage src={post.coverImage} alt={post.imageAlt || post.title} title={post.title} subtitle={post.category} className="h-44 w-full rounded-none" sizes="(max-width: 768px) 100vw, 25vw" />
               <div className="p-6">

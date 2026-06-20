@@ -144,3 +144,8 @@ WhatsApp must remain a primary conversion channel because travelers often need r
 - Payment planning.
 - Customer portal.
 - English/Nepali support.
+## CMS Product Scope
+
+The admin dashboard includes a simple CMS for non-technical website management. Admin users can update homepage/about/contact page content, business details, FAQs, services, blog posts, gallery items, media assets, packages, vehicles, destinations, testimonials, and inquiries without editing code. Public pages read database content first and fall back to static content when CMS records are missing.
+
+Development login is `karnali@admin.com` / `123456`; this is testing-only and must be changed before production.

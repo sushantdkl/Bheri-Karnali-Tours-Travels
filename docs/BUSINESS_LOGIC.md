@@ -85,3 +85,8 @@ Static content targets Karnali and Surkhet search intent. Blog guides support in
 ## Data Ownership And Client Handover
 
 The client owns approved business copy, images, package descriptions, pricing policies, inquiry data, and admin credentials. Placeholder images should be replaced before final launch.
+## CMS Business Logic
+
+The business owner can change public-facing content from the admin CMS instead of editing code. Site settings control company name, proprietor, phone, WhatsApp, location, footer copy, and SEO defaults. Page content controls hero titles, subtitles, images, CTA labels, and long text. Public pages prefer database content and preserve static fallbacks to prevent blank pages.
+
+Default development admin credentials are `karnali@admin.com` / `123456`. The password must be changed before production use.

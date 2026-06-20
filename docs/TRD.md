@@ -139,3 +139,8 @@ npm run build
 ```
 
 On the current Windows folder path, `npm run prisma:generate` is the verified Prisma Client generation command because the folder name contains `&`, which can break the Windows `npx` wrapper.
+## CMS Technical Notes
+
+CMS content is stored with Prisma models for `SiteSettings`, `PageContent`, `Service`, `FAQ`, `BlogPost`, `GalleryItem`, and `MediaAsset`. Admin routes live under the protected `/admin` dashboard and use server actions or admin-only API routes. Public server components fetch CMS content with static fallbacks and revalidate public paths after admin saves.
+
+Local upload route: `POST /api/admin/upload`. It validates admin auth, image MIME type, and 5MB size limit, then writes to `public/uploads` and creates a `MediaAsset` record. Production should replace local filesystem storage with Cloudinary, UploadThing, S3, Supabase Storage, or Vercel Blob.

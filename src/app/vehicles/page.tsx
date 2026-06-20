@@ -7,6 +7,7 @@ import { VehicleCard } from "@/components/vehicles/VehicleCard";
 import { vehicles } from "@/data/vehicles";
 import { rentalRoutes } from "@/data/routes";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { getActiveVehicles } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Surkhet Vehicle Rental",
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function VehiclesPage() {
+export default async function VehiclesPage() {
+  const vehicleItems = await getActiveVehicles(vehicles);
+
   return (
     <>
       <section className="section-pad bg-[linear-gradient(135deg,#102033_0%,#063f35_60%,#0f4f3d_100%)] text-white">
@@ -51,7 +54,7 @@ export default function VehiclesPage() {
         </div>
         <div className="container-main">
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {vehicles.map((vehicle) => <VehicleCard key={vehicle.slug} vehicle={vehicle} />)}
+            {vehicleItems.map((vehicle) => <VehicleCard key={vehicle.slug} vehicle={vehicle} />)}
           </div>
         </div>
       </section>

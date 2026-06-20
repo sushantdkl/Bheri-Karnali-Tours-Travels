@@ -168,3 +168,10 @@ bheri-karnali-inquiries.csv
 ## Admin CRUD
 
 Admin package, vehicle, destination, testimonial, and inquiry status changes are handled through protected server actions in `src/server/admin/actions.ts`, not public API routes.
+## Admin CMS APIs
+
+`POST /api/admin/upload`
+
+Protected admin-only media upload endpoint. Accepts multipart form data with `file`, optional `altText`, and optional `category`. Allowed MIME types are JPG, PNG, WebP, and SVG with a 5MB max size. The response returns `{ success: true, url }` and stores metadata in `MediaAsset`.
+
+CMS create/update operations are handled by protected server actions in `src/server/cms/actions.ts`.

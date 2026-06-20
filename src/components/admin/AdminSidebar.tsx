@@ -12,6 +12,13 @@ const links = [
   { href: "/admin/packages", label: "Packages" },
   { href: "/admin/vehicles", label: "Vehicles" },
   { href: "/admin/destinations", label: "Destinations" },
+  { href: "/admin/cms/blog", label: "Blog" },
+  { href: "/admin/cms/gallery", label: "Gallery" },
+  { href: "/admin/cms/faqs", label: "FAQs" },
+  { href: "/admin/cms/services", label: "Services" },
+  { href: "/admin/cms/pages", label: "Pages" },
+  { href: "/admin/cms/settings", label: "Site Settings" },
+  { href: "/admin/media", label: "Media Library" },
   { href: "/admin/testimonials", label: "Testimonials" },
 ];
 
@@ -28,7 +35,7 @@ export function AdminSidebar() {
             <span className="text-xs font-semibold text-forest">Bheri Karnali</span>
           </span>
         </Link>
-        <nav className="mt-8 grid gap-2">
+        <nav className="mt-8 grid max-h-[calc(100vh-190px)] gap-2 overflow-y-auto pr-1">
           {links.map((link) => {
             const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
             return (

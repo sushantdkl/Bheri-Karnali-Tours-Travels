@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { COMPANY_NAME, DISPLAY_PHONE, PROPRIETOR_NAME, TEL_PHONE } from "@/lib/constants";
+import { COMPANY_NAME, DISPLAY_PHONE, PROPRIETOR_NAME } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { FAQSection } from "@/components/shared/TrustSections";
 import { rentalRoutes } from "@/data/routes";
 import { faqs } from "@/data/faqs";
+import { getSiteSettings } from "@/lib/cms";
 import { faqPageJsonLd, localBusinessJsonLd } from "@/lib/seo/jsonLd";
 
 export const metadata: Metadata = {
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
     "Contact Bheri Karnali Tours & Travels for Karnali tour package booking, Surkhet vehicle rental, and WhatsApp travel inquiries.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
   return (
     <>
       <JsonLd data={[localBusinessJsonLd(), faqPageJsonLd(faqs.slice(0, 8))]} />
@@ -29,18 +31,7 @@ export default function ContactPage() {
               titleAs="h1"
             />
             <div className="mt-8 grid gap-4">
-              <div className="card p-5">
-                <p className="font-black text-navyInk">Company</p>
-                <p className="mt-2 text-sm leading-7 text-navyInk/70">{COMPANY_NAME}</p>
-                <p className="mt-1 text-sm leading-7 text-navyInk/70">Proprietor: {PROPRIETOR_NAME}</p>
-              </div>
-              <a className="card p-5 text-lg font-black text-navyInk" href={`tel:${TEL_PHONE}`}>Phone: {DISPLAY_PHONE}</a>
-              <a className="card p-5 text-lg font-black text-forest" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">WhatsApp: {DISPLAY_PHONE}</a>
-              <div className="card p-5">
-                <p className="font-black text-navyInk">Business base</p>
-                <p className="mt-2 text-sm leading-7 text-navyInk/70">Surkhet, Karnali Province, Nepal</p>
-                <p className="mt-2 text-sm leading-7 text-navyInk/70">Service region: Karnali Province and Nepal</p>
-              </div>
+              <ContactCards settings={settings} />
               <div className="card p-5">
                 <p className="font-black text-navyInk">WhatsApp-first booking support</p>
                 <p className="mt-2 text-sm leading-7 text-navyInk/70">Ask for latest route condition, cost range, vehicle fit, and available dates before you confirm.</p>
@@ -99,6 +90,31 @@ export default function ContactPage() {
         </div>
       </section>
       <FAQSection />
+    </>
+  );
+}
+
+function ContactCards({ settings }: { settings: Awaited<ReturnType<typeof getSiteSettings>> }) {
+  const phone = settings?.phone || DISPLAY_PHONE;
+  const proprietor = settings?.proprietorName || PROPRIETOR_NAME;
+  const company = settings?.siteName || COMPANY_NAME;
+  const location = settings?.location || "Surkhet, Karnali Province, Nepal";
+  const tel = phone.replace(/\s|-/g, "");
+
+  return (
+    <>
+      <div className="card p-5">
+        <p className="font-black text-navyInk">Company</p>
+        <p className="mt-2 text-sm leading-7 text-navyInk/70">{company}</p>
+        <p className="mt-1 text-sm leading-7 text-navyInk/70">Proprietor: {proprietor}</p>
+      </div>
+      <a className="card p-5 text-lg font-black text-navyInk" href={`tel:${tel}`}>Phone: {phone}</a>
+      <a className="card p-5 text-lg font-black text-forest" href={settings?.whatsappLink || getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">WhatsApp: {phone}</a>
+      <div className="card p-5">
+        <p className="font-black text-navyInk">Business base</p>
+        <p className="mt-2 text-sm leading-7 text-navyInk/70">{location}</p>
+        <p className="mt-2 text-sm leading-7 text-navyInk/70">Service region: Karnali Province and Nepal</p>
+      </div>
     </>
   );
 }

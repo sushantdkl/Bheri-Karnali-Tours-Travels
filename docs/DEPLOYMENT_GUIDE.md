@@ -136,3 +136,15 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 - Admin login fails: verify seed ran and admin env values were set.
 - Build fails from missing env: ensure required env vars exist in Vercel.
 - Sitemap uses wrong domain: update `NEXT_PUBLIC_SITE_URL`.
+## CMS Deployment Notes
+
+Before deployment, run Prisma generation and apply migrations for CMS models:
+
+```bash
+npm run prisma:generate
+npm run prisma:deploy
+npm run prisma:seed
+npm run build
+```
+
+Set secure production values for `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `ADMIN_JWT_SECRET`, and `DATABASE_URL`. The seeded development admin `karnali@admin.com` / `123456` is testing-only and must be changed or disabled before launch. Local uploads to `public/uploads` are not persistent on Vercel; use Cloudinary, UploadThing, S3, Supabase Storage, or Vercel Blob for production media.

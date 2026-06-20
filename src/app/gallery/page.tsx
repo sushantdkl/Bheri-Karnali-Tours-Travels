@@ -3,6 +3,7 @@ import { CTASection } from "@/components/shared/CTASection";
 import { GalleryGrid } from "@/components/shared/GalleryGrid";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { galleryItems } from "@/data/gallery";
+import { getPublishedGalleryItems } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Karnali Travel Gallery",
@@ -16,7 +17,9 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const items = await getPublishedGalleryItems(galleryItems);
+
   return (
     <>
       <section className="section-pad section-gradient">
@@ -28,7 +31,7 @@ export default function GalleryPage() {
             titleAs="h1"
           />
           <div className="mt-10">
-            <GalleryGrid items={galleryItems} />
+            <GalleryGrid items={items} />
           </div>
         </div>
       </section>

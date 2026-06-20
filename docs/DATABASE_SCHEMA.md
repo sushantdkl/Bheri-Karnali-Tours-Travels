@@ -137,3 +137,6 @@ npx prisma db seed
 - Keep `DATABASE_URL` secret.
 - Back up production data.
 - Run migrations before deploying schema-dependent code.
+## CMS Tables
+
+The CMS uses these Prisma models: `SiteSettings`, `PageContent`, `Service`, `FAQ`, `BlogPost`, `GalleryItem`, and `MediaAsset`. Existing operational models for inquiries, packages, vehicles, destinations, testimonials, and admin users remain in place. `AdminUser.passwordHash` stores bcrypt hashes only; the default development admin is seeded only if missing.

@@ -63,3 +63,9 @@
 - [ ] Collect real testimonials.
 - [ ] Add real photos.
 - [ ] Add analytics if needed.
+## CMS Launch Checklist
+
+- [ ] Change or remove the development admin password `123456` before production.
+- [ ] Confirm CMS migrations are applied in the production database.
+- [ ] Replace local filesystem uploads with persistent storage such as Cloudinary, UploadThing, S3, Supabase Storage, or Vercel Blob.
+- [ ] Review site settings, page content, gallery, FAQs, blog posts, packages, vehicles, destinations, and testimonials from the admin dashboard.

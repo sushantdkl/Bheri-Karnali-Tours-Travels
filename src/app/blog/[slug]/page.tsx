@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CTASection } from "@/components/shared/CTASection";
 import { ResponsiveImage } from "@/components/shared/ResponsiveImage";
 import { blogPosts } from "@/data/blog";
+import { getPublishedBlogPosts } from "@/lib/cms";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -15,7 +16,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((item) => item.slug === slug);
+  const posts = await getPublishedBlogPosts<typeof blogPosts[number]>(blogPosts);
+  const post = posts.find((item) => item.slug === slug);
   if (!post) return {};
   return {
     title: post.seoTitle || post.title,
@@ -28,7 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((item) => item.slug === slug);
+  const posts = await getPublishedBlogPosts<typeof blogPosts[number]>(blogPosts);
+  const post = posts.find((item) => item.slug === slug);
   if (!post) notFound();
 
   return (

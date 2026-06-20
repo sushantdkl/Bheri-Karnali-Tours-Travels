@@ -108,3 +108,11 @@ Validation errors return field messages. Server errors return safe fallback mess
 3. Configure environment variables.
 4. Run migrations and seed.
 5. Deploy and smoke test.
+## CMS Content Flow
+
+1. Admin logs in at `/admin/login`.
+2. Admin opens `/admin/cms` or a CMS sidebar item.
+3. Admin edits page content, site settings, FAQs, services, blog, gallery, or media.
+4. Data is saved to the database through protected server actions or admin-only upload APIs.
+5. Public paths are revalidated where relevant.
+6. Visitors see updated CMS content on refresh, with static fallback content if a CMS record is absent.

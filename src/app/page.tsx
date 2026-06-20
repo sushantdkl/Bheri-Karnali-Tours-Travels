@@ -8,11 +8,13 @@ import { VehicleRentalPreview } from "@/components/home/VehicleRentalPreview";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { CTASection } from "@/components/shared/CTASection";
 import { FAQSection, SafetySupportSection, TestimonialsSection } from "@/components/shared/TrustSections";
+import { getPageContent } from "@/lib/cms";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const homeContent = await getPageContent("home");
   return (
     <>
-      <Hero />
+      <Hero heroTitle={homeContent?.heroTitle} heroSubtitle={homeContent?.heroSubtitle} heroImage={homeContent?.heroImage} />
       <AdventureCategories />
       <PopularPackages />
       <VehicleRentalPreview />

@@ -7,6 +7,7 @@ import { CTASection } from "@/components/shared/CTASection";
 import { InquirySection } from "@/components/home/InquirySection";
 import { tourPackages } from "@/data/packages";
 import { SITE_URL } from "@/lib/constants";
+import { getActiveTourPackages } from "@/lib/cms";
 import { faqPageJsonLd, touristTripJsonLd } from "@/lib/seo/jsonLd";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -20,7 +21,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const tour = tourPackages.find((item) => item.slug === slug);
+  const packages = await getActiveTourPackages(tourPackages);
+  const tour = packages.find((item) => item.slug === slug);
   if (!tour) return {};
 
   return {
@@ -39,7 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function PackageDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const tour = tourPackages.find((item) => item.slug === slug);
+  const packages = await getActiveTourPackages(tourPackages);
+  const tour = packages.find((item) => item.slug === slug);
   if (!tour) notFound();
 
   return (

@@ -3,8 +3,34 @@ import bcrypt from "bcryptjs";
 import { tourPackages } from "../src/data/packages";
 import { destinations } from "../src/data/destinations";
 import { vehicles } from "../src/data/vehicles";
+import { faqs } from "../src/data/faqs";
+import { galleryItems } from "../src/data/gallery";
 
 const prisma = new PrismaClient();
+const DEFAULT_ADMIN_EMAIL = "karnali@admin.com";
+const DEFAULT_ADMIN_PASSWORD = "123456";
+
+async function ensureAdmin(email: string, password: string, name = "Default Admin") {
+  const existingAdmin = await prisma.adminUser.findUnique({
+    where: { email },
+    select: { id: true },
+  });
+
+  if (!existingAdmin) {
+    await prisma.adminUser.create({
+      data: {
+        name,
+        email,
+        passwordHash: await bcrypt.hash(password, 12),
+        role: "ADMIN",
+        isActive: true,
+      },
+    });
+    console.log(`Created admin user: ${email}`);
+  } else {
+    console.log(`Admin already exists: ${email}`);
+  }
+}
 
 async function main() {
   await prisma.destination.createMany({
@@ -359,29 +385,92 @@ async function main() {
     ],
   });
 
-  if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
-    const existingAdmin = await prisma.adminUser.findUnique({
-      where: { email: process.env.ADMIN_EMAIL },
-      select: { id: true },
-    });
+  await ensureAdmin(DEFAULT_ADMIN_EMAIL, DEFAULT_ADMIN_PASSWORD, "Bheri Karnali Admin");
 
-    if (!existingAdmin) {
-      await prisma.adminUser.create({
-        data: {
-          name: "Default Admin",
-          email: process.env.ADMIN_EMAIL,
-          passwordHash: await bcrypt.hash(process.env.ADMIN_PASSWORD, 12),
-          role: "ADMIN",
-          isActive: true,
-        },
-      });
-      console.log(`Created default admin: ${process.env.ADMIN_EMAIL}`);
-    } else {
-      console.log(`Default admin already exists: ${process.env.ADMIN_EMAIL}`);
-    }
+  if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+    await ensureAdmin(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD);
   } else {
-    console.warn("ADMIN_EMAIL or ADMIN_PASSWORD missing. Skipping default admin creation.");
+    console.warn("ADMIN_EMAIL or ADMIN_PASSWORD missing. Default testing admin was created instead.");
   }
+
+  const existingSettings = await prisma.siteSettings.findFirst({ select: { id: true } });
+  if (!existingSettings) {
+    await prisma.siteSettings.create({
+      data: {
+        siteName: "Bheri Karnali Tours & Travels",
+        proprietorName: "Gyanendra Gautam",
+        phone: "+977 970-5432357",
+        whatsappNumber: "9779705432357",
+        whatsappLink: "https://wa.me/9779705432357",
+        location: "Surkhet, Karnali Province, Nepal",
+        shortDescription: "Karnali tours, Rara Lake planning, vehicle rental, and local travel support from Surkhet.",
+        footerDescription: "Trusted Karnali travel planning, tour packages, and vehicle rental from Surkhet.",
+        seoTitle: "Bheri Karnali Tours & Travels",
+        seoDescription: "Plan Karnali tours and Surkhet vehicle rental with Bheri Karnali Tours & Travels.",
+      },
+    });
+  }
+
+  await prisma.pageContent.upsert({
+    where: { pageKey: "home" },
+    create: {
+      pageKey: "home",
+      title: "Home",
+      heroTitle: "Explore Karnali with Trusted Local Experts",
+      heroSubtitle: "Plan Rara Lake, Phoksundo, Dolpo, Humla, Jumla, Surkhet tours and vehicle rental from Surkhet with Bheri Karnali Tours & Travels.",
+      heroImage: "/images/karnali-hero.png",
+      ctaLabel: "Explore Packages",
+      ctaHref: "/packages",
+      isPublished: true,
+    },
+    update: {},
+  });
+
+  await prisma.pageContent.upsert({
+    where: { pageKey: "about" },
+    create: {
+      pageKey: "about",
+      title: "About",
+      heroTitle: "A premium travel partner rooted in Karnali",
+      heroSubtitle: "Local route knowledge, vehicle planning, and trusted support for Karnali journeys from Surkhet.",
+      heroImage: "/images/karnali/rara-lake.jpg",
+      content: "Surkhet is the working gateway for many Karnali routes. Our role is to make complex travel feel clear: where to go, when to travel, which vehicle fits, how many days to keep, and how to stay flexible when roads or weather change.",
+      isPublished: true,
+    },
+    update: {},
+  });
+
+  const existingFaqs = await prisma.fAQ.count();
+  if (existingFaqs === 0) {
+    await prisma.fAQ.createMany({
+      data: faqs.map((faq, index) => ({
+        question: faq.question,
+        answer: faq.answer,
+        category: faq.category,
+        sortOrder: index,
+        isPublished: true,
+      })),
+    });
+  }
+
+  const existingGallery = await prisma.galleryItem.count();
+  if (existingGallery === 0) {
+    await prisma.galleryItem.createMany({
+      data: galleryItems.map((item, index) => ({
+        title: item.title,
+        category: item.category,
+        location: item.location,
+        description: item.description,
+        imageUrl: item.image || "/images/karnali/rara-lake.jpg",
+        altText: item.alt,
+        sortOrder: index,
+        isFeatured: index < 4,
+        isPublished: true,
+      })),
+    });
+  }
+
+  console.warn("Development admin credentials are karnali@admin.com / 123456. Change this password before production launch.");
 }
 
 main()

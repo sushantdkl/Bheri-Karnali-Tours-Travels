@@ -144,3 +144,10 @@ Features:
 Business value: Better operational control.
 
 Technical notes: Requires new vehicle booking and driver models.
+## CMS Roadmap
+
+- Add managed cloud media storage integration for production uploads.
+- Add image deletion with storage cleanup and audit logs.
+- Add draft preview and richer blog editing.
+- Add per-admin roles for content editors, managers, and owners.
+- Add content change history and restore points.

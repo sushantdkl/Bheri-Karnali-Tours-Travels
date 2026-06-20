@@ -38,7 +38,7 @@ export function AdminLoginForm() {
   return (
     <form onSubmit={submit} className="card grid gap-4 p-6">
       <input className="input-field" name="email" type="email" placeholder="Email" required />
-      <input className="input-field" name="password" type="password" placeholder="Password" minLength={8} required />
+      <input className="input-field" name="password" type="password" placeholder="Password" minLength={6} required />
       {error ? <p className="rounded-lg bg-red-50 p-3 text-sm font-bold text-red-700">{error}</p> : null}
       <button className="btn-dark w-full disabled:opacity-60" disabled={loading}>
         {loading ? "Logging in..." : "Login"}

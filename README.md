@@ -45,6 +45,7 @@ Contact:
 ## Folder Structure
 
 ```text
+docs/                       Project documentation, launch guides, QA, security, API, PRD, and TRD
 prisma/                     Prisma schema and seed script
 public/images/              Brand, hero, destination, package, vehicle, gallery, icon, and OG images
 src/app/                    App Router pages and route handlers
@@ -71,6 +72,8 @@ ADMIN_EMAIL=
 ADMIN_PASSWORD=
 EMAIL_PROVIDER=
 ADMIN_NOTIFICATION_EMAIL=
+UPLOAD_PROVIDER=local
+UPLOAD_MAX_MB=5
 ```
 
 Security notes:
@@ -138,6 +141,15 @@ ADMIN_JWT_SECRET=
 
 The seed script hashes the admin password before saving it. Admin pages are available under `/admin/*`.
 
+Development fallback admin:
+
+```text
+Email: karnali@admin.com
+Password: 123456
+```
+
+Change this password before any real production launch.
+
 ## Build
 
 ```bash
@@ -190,6 +202,14 @@ npm run prisma:generate
 - `/admin/vehicles`
 - `/admin/destinations`
 - `/admin/testimonials`
+- `/admin/cms`
+- `/admin/cms/pages`
+- `/admin/cms/settings`
+- `/admin/cms/faqs`
+- `/admin/cms/services`
+- `/admin/cms/blog`
+- `/admin/cms/gallery`
+- `/admin/media`
 
 ## API Routes
 
@@ -200,6 +220,7 @@ npm run prisma:generate
 - `POST /api/admin/auth/logout`
 - `GET /api/admin/auth/me`
 - `GET /api/admin/inquiries/export`
+- `POST /api/admin/upload`
 
 ## Security Notes
 
@@ -222,3 +243,19 @@ npm run prisma:generate
 - Advanced SEO content engine.
 - Review collection workflow.
 - Vehicle availability and driver management.
+
+## Documentation
+
+Full project documentation lives in [`docs/`](docs/README.md):
+
+- Product and technical requirements
+- Business logic and app flow
+- API and database documentation
+- Security, QA, launch, deployment, and roadmap notes
+
+## Admin CMS and Media
+
+- Default development admin: `karnali@admin.com` / `123456`. This account is for testing only and the password must be changed before production launch.
+- The admin CMS manages site settings, page hero/content blocks, FAQs, services, blog posts, gallery items, media assets, packages, vehicles, destinations, testimonials, and inquiries.
+- Local image uploads are available at `/admin/media` and stored in `public/uploads` during development. Vercel serverless file storage is not persistent, so production uploads should use Cloudinary, UploadThing, S3, Supabase Storage, or Vercel Blob.
+- After schema changes run `npm run prisma:generate`, apply a Prisma migration, seed the database, then run `npm run build`.

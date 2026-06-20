@@ -171,3 +171,133 @@ model AdminUser {
   @@index([role])
   @@index([isActive])
 }
+
+model SiteSettings {
+  id                String   @id @default(cuid())
+  siteName          String   @default("Bheri Karnali Tours & Travels")
+  proprietorName    String   @default("Gyanendra Gautam")
+  phone             String   @default("+977 970-5432357")
+  whatsappNumber    String   @default("9779705432357")
+  whatsappLink      String   @default("https://wa.me/9779705432357")
+  email             String?
+  location          String   @default("Surkhet, Karnali Province, Nepal")
+  shortDescription  String?
+  footerDescription String?
+  logoUrl           String?
+  iconLogoUrl       String?
+  primaryColor      String?
+  accentColor       String?
+  seoTitle          String?
+  seoDescription    String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model PageContent {
+  id             String   @id @default(cuid())
+  pageKey        String   @unique
+  title          String
+  subtitle       String?
+  content        String?
+  heroTitle      String?
+  heroSubtitle   String?
+  heroImage      String?
+  ctaLabel       String?
+  ctaHref        String?
+  seoTitle       String?
+  seoDescription String?
+  isPublished    Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([isPublished])
+}
+
+model Service {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  shortDescription String
+  description      String
+  icon             String?
+  image            String?
+  isFeatured       Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  sortOrder        Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([isFeatured])
+  @@index([sortOrder])
+}
+
+model FAQ {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String
+  category    String?
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished])
+  @@index([category])
+  @@index([sortOrder])
+}
+
+model BlogPost {
+  id             String    @id @default(cuid())
+  title          String
+  slug           String    @unique
+  excerpt        String
+  content        String
+  coverImage     String?
+  category       String?
+  readingTime    String?
+  seoTitle       String?
+  seoDescription String?
+  isPublished    Boolean   @default(true)
+  publishedAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([isPublished])
+  @@index([publishedAt])
+}
+
+model GalleryItem {
+  id          String   @id @default(cuid())
+  title       String
+  category    String
+  location    String?
+  description String?
+  imageUrl    String
+  altText     String
+  isFeatured  Boolean  @default(false)
+  isPublished Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished])
+  @@index([category])
+  @@index([sortOrder])
+}
+
+model MediaAsset {
+  id           String   @id @default(cuid())
+  fileName     String
+  originalName String
+  url          String
+  mimeType     String
+  size         Int
+  altText      String?
+  category     String?
+  uploadedBy   String?
+  createdAt    DateTime @default(now())
+
+  @@index([category])
+  @@index([createdAt])
+}

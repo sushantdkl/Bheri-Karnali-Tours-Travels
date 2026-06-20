@@ -143,3 +143,11 @@
 - [ ] Search Console planned.
 - [ ] Google Business Profile planned.
 - [ ] Vercel logs monitored.
+## CMS QA Checklist
+
+- [ ] Seed creates `karnali@admin.com` with password `123456` only when missing.
+- [ ] Admin login, logout, and protected routes work.
+- [ ] CMS pages, settings, FAQs, services, blog, gallery, and media library load inside admin.
+- [ ] Media upload rejects non-images and images over 5MB.
+- [ ] Public pages show CMS content when records exist and static fallback when records are absent.
+- [ ] `npm run prisma:generate`, `npm run typecheck`, `npm run lint`, and `npm run build` pass.

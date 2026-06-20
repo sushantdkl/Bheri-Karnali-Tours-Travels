@@ -102,3 +102,10 @@ Report security issues privately to the project owner or maintainer. Do not open
 - Admin activity history.
 - Role-based permissions.
 - Optional two-factor authentication.
+## CMS and Upload Security
+
+- Default development admin: `karnali@admin.com` / `123456`; change this password before launch.
+- Admin passwords are hashed with bcrypt/bcryptjs and `passwordHash` is never returned by public APIs.
+- CMS routes are protected by the existing admin session guard.
+- `/api/admin/upload` requires an active admin session, accepts image files only, limits uploads to 5MB, generates safe unique filenames, and returns public URLs only.
+- Runtime local uploads are not persistent on Vercel; production should use managed object storage.

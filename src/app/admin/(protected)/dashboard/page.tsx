@@ -43,6 +43,12 @@ export default async function AdminDashboardPage() {
         <Link className="btn-dark" href="/admin/vehicles/new">Add vehicle</Link>
         <Link className="btn-dark" href="/admin/destinations/new">Add destination</Link>
       </div>
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Link className="card p-5 font-black text-navyInk hover:-translate-y-1 hover:shadow-premium" href="/admin/cms/pages">Edit Home Page</Link>
+        <Link className="card p-5 font-black text-navyInk hover:-translate-y-1 hover:shadow-premium" href="/admin/cms/gallery">Manage Gallery</Link>
+        <Link className="card p-5 font-black text-navyInk hover:-translate-y-1 hover:shadow-premium" href="/admin/media">Upload Images</Link>
+        <Link className="card p-5 font-black text-navyInk hover:-translate-y-1 hover:shadow-premium" href="/admin/cms/settings">Site Settings</Link>
+      </section>
       <section className="card overflow-hidden">
         <div className="border-b border-navyInk/10 p-5">
           <h2 className="text-xl font-black text-navyInk">Recent leads</h2>
