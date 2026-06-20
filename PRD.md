@@ -4,6 +4,8 @@
 
 Bheri Karnali Tours & Travels Website and Admin System
 
+Business owner/proprietor: Gyanendra Gautam
+
 ## Product Vision
 
 Create a trustworthy, locally discoverable travel and vehicle rental platform for Karnali-focused tourism, with WhatsApp-first lead conversion and simple admin lead management.

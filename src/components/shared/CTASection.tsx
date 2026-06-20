@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { DISPLAY_PHONE } from "@/lib/constants";
+import { DISPLAY_PHONE, TEL_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function CTASection() {
   return (
     <section className="section-pad">
-      <div className="container-main overflow-hidden rounded-lg bg-[linear-gradient(135deg,#102033_0%,#063f35_55%,#0f4f3d_100%)] p-8 text-white shadow-premium sm:p-12 lg:p-14">
+      <div className="container-main overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.34),transparent_24rem),linear-gradient(135deg,#082032_0%,#0e7490_54%,#111827_100%)] p-8 text-white shadow-premium sm:p-12 lg:p-14">
         <div className="grid gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
             <p className="eyebrow">Plan with local experts</p>
@@ -17,10 +17,10 @@ export function CTASection() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a href={getWhatsAppUrl("Hello Bheri Karnali Tours & Travels, I want to customize a trip.")} target="_blank" rel="noreferrer" className="btn-primary">
+            <a href={getWhatsAppUrl("Hello Bheri Karnali Tours & Travels, I want to customize a trip.")} target="_blank" rel="noopener noreferrer" className="btn-primary">
               WhatsApp Inquiry
             </a>
-            <a href={`tel:${DISPLAY_PHONE.replace("-", "")}`} className="btn-secondary">
+            <a href={`tel:${TEL_PHONE}`} className="btn-secondary">
               Call {DISPLAY_PHONE}
             </a>
             <Link href="/booking" className="btn-secondary">

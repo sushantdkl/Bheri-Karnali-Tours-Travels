@@ -43,7 +43,7 @@ export default function DestinationsPage() {
                   {destination.vehicleSupport ? <p className="mt-2 text-xs font-bold text-navyInk/55">Vehicle: {destination.vehicleSupport}</p> : null}
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link href="/packages" className="btn-dark px-4 py-2.5">Explore Packages</Link>
-                    <a href={getWhatsAppUrl(`Hello Bheri Karnali Tours & Travels, I want to ask about ${destination.name}.`)} target="_blank" rel="noreferrer" className="btn-outline px-4 py-2.5">Ask on WhatsApp</a>
+                    <a href={getWhatsAppUrl(`Hello Bheri Karnali Tours & Travels, I want to ask about ${destination.name}.`)} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2.5">Ask on WhatsApp</a>
                   </div>
                 </div>
               </article>

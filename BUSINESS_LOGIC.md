@@ -4,6 +4,8 @@
 
 Bheri Karnali Tours & Travels generates travel and vehicle rental leads through a public website, then converts those leads through WhatsApp, phone, and direct admin follow-up.
 
+The company is led by proprietor Gyanendra Gautam from Surkhet, Karnali Province, Nepal.
+
 ## Public User Journey
 
 Users discover packages, destinations, vehicle rental routes, gallery content, or blog guides. They then submit an inquiry, call, or message the company on WhatsApp.
@@ -24,11 +26,11 @@ Contact messages are saved as general contact inquiries.
 
 WhatsApp is used for fast inquiry and conversion. Public users can directly message the company. Admin users can message leads from inquiry detail pages.
 
-Company WhatsApp number: `9779858032357`
+Company WhatsApp number: `9779705432357`
 
 ## Phone Call Logic
 
-Phone links use `tel:9858032357` for quick mobile calling.
+Phone links use `tel:+9779705432357` for quick mobile calling.
 
 ## Admin Lead Management Logic
 

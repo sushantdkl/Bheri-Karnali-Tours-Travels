@@ -5,7 +5,7 @@ import { vehicles } from "@/data/vehicles";
 
 export function VehicleRentalPreview() {
   return (
-    <section className="section-pad bg-emeraldDeep text-white">
+    <section className="section-pad bg-[radial-gradient(circle_at_top_left,rgba(14,116,144,0.35),transparent_30rem),linear-gradient(135deg,#082032_0%,#0e7490_52%,#111827_100%)] text-white">
       <div className="container-main">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading

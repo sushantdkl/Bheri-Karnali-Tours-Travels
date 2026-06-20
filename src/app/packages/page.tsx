@@ -38,7 +38,7 @@ export default async function PackagesPage({ searchParams }: PageProps) {
             description="Start with a proven Karnali package, then customize the vehicle, pace, accommodation level, route support, and budget around your family, student group, official visit, or adventure plan."
             titleAs="h1"
           />
-          <form className="mt-8 grid gap-4 rounded-lg border border-emeraldDeep/10 bg-white p-4 shadow-premium md:grid-cols-[1fr_220px_auto]">
+          <form className="mt-8 grid gap-4 rounded-2xl border border-navyInk/10 bg-white/90 p-4 shadow-premium backdrop-blur md:grid-cols-[1fr_220px_auto]">
             <input className="input-field" name="q" placeholder="Search Rara, Phoksundo, Jumla, Dailekh..." defaultValue={params.q || ""} />
             <select className="input-field" name="difficulty" defaultValue={params.difficulty || ""}>
               <option value="">All difficulty</option>

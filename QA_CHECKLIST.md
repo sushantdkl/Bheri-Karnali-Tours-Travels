@@ -28,8 +28,8 @@
 
 ## WhatsApp And Call Links
 
-- [ ] WhatsApp links use `https://wa.me/9779858032357`.
-- [ ] Phone links use `tel:9858032357`.
+- [ ] WhatsApp links use `https://wa.me/9779705432357`.
+- [ ] Phone links use `tel:+9779705432357`.
 - [ ] Sticky mobile contact bar works.
 - [ ] Desktop floating contact card works.
 

@@ -10,8 +10,9 @@ The business goal is to generate qualified travel and vehicle rental leads, make
 
 Contact:
 
-- Phone: `9858032357`
-- WhatsApp: https://wa.me/9779858032357
+- Proprietor: Gyanendra Gautam
+- Phone: `+977 970-5432357`
+- WhatsApp: https://wa.me/9779705432357
 - Location: Surkhet, Karnali Province, Nepal
 
 ## Key Features
@@ -62,8 +63,8 @@ Create `.env` from `.env.example`.
 ```env
 DATABASE_URL=
 NEXT_PUBLIC_SITE_URL=
-NEXT_PUBLIC_WHATSAPP_NUMBER=9779858032357
-NEXT_PUBLIC_PHONE_NUMBER=9858032357
+NEXT_PUBLIC_WHATSAPP_NUMBER=9779705432357
+NEXT_PUBLIC_PHONE_NUMBER=+9779705432357
 ADMIN_JWT_SECRET=
 ADMIN_COOKIE_NAME=bheri_karnali_admin_session
 ADMIN_EMAIL=
@@ -97,6 +98,13 @@ http://localhost:3000
 ```
 
 Windows note: the local folder name contains `&`, so package scripts call Next, Prisma, ESLint, and TypeScript directly to avoid path shim issues.
+If `npx prisma generate` fails on this machine with a path that includes `Bheri Karnali Tours & Travels`, use the verified project script instead:
+
+```bash
+npm run prisma:generate
+```
+
+The `npx` commands are still valid on normal paths and in Vercel/Linux environments.
 
 ## Prisma Setup
 

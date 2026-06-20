@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CTASection } from "@/components/shared/CTASection";
+import { ResponsiveImage } from "@/components/shared/ResponsiveImage";
 import { blogPosts } from "@/data/blog";
 
 type PageProps = {
@@ -44,6 +45,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           <p className="eyebrow">{post.category} / {post.readingTime}</p>
           <h1 className="mt-4 text-4xl font-black text-navyInk sm:text-6xl">{post.title}</h1>
           <p className="mt-5 text-lg leading-8 text-navyInk/70">{post.excerpt}</p>
+          <ResponsiveImage src={post.coverImage} alt={post.imageAlt || post.title} title={post.title} subtitle={post.category} priority className="mt-10 h-72 w-full shadow-premium sm:h-96" sizes="100vw" />
           <div className="mt-10 grid gap-6">
             {post.content.map((paragraph) => (
               <p key={paragraph} className="text-base leading-8 text-navyInk/75">{paragraph}</p>

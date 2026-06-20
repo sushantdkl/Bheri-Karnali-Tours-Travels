@@ -7,14 +7,17 @@ const config: Config = {
       colors: {
         forest: "#0f4f3d",
         emeraldDeep: "#063f35",
-        saffron: "#f28c28",
-        sunset: "#ef5b2a",
-        navyInk: "#102033",
-        cream: "#fff7ea",
-        river: "#1aa7a1",
+        saffron: "#f59e0b",
+        sunset: "#f97316",
+        navyInk: "#082032",
+        cream: "#fff7ed",
+        river: "#0e7490",
+        royal: "#0284c7",
+        charcoal: "#111827",
       },
       boxShadow: {
-        premium: "0 22px 60px rgba(16, 32, 51, 0.14)",
+        premium: "0 24px 70px rgba(8, 32, 50, 0.16)",
+        glow: "0 22px 60px rgba(14, 116, 144, 0.22)",
       },
       fontFamily: {
         sans: ["Inter", "Segoe UI", "Arial", "sans-serif"],

@@ -1,5 +1,17 @@
 import type { BlogPost } from "@/types";
 
+const blogCoverImages: Record<string, { coverImage: string; imageAlt: string }> = {
+  "best-time-to-visit-rara-lake": { coverImage: "/images/karnali/rara-lake.jpg", imageAlt: "Panoramic view of Rara Lake in Karnali" },
+  "how-to-reach-rara-lake-from-surkhet": { coverImage: "/images/destinations/rara-lake-camping-sunrise.png", imageAlt: "Camping beside Rara Lake at sunrise" },
+  "surkhet-to-rara-lake-jeep-route-guide": { coverImage: "/images/destinations/vehicle-rental-car-jeep-van-bus.png", imageAlt: "Car, jeep, van and bus rental options" },
+  "vehicle-rental-in-surkhet-guide": { coverImage: "/images/destinations/car-rental-nepal-with-driver.png", imageAlt: "Vehicle rental in Nepal with driver" },
+  "jeep-rental-for-karnali-routes": { coverImage: "/images/destinations/vehicle-rental-car-jeep-van-bus.png", imageAlt: "Jeep rental from Surkhet for Karnali routes" },
+  "things-to-know-before-traveling-to-karnali": { coverImage: "/images/destinations/himalayan-trekking-adventure.png", imageAlt: "Himalayan trekking route in Nepal" },
+  "dailekh-heritage-eternal-flame-tour-guide": { coverImage: "/images/destinations/karnali-cultural-temple-mountain.png", imageAlt: "Cultural heritage temple in Karnali mountain region" },
+  "dolpo-trek-planning-guide": { coverImage: "/images/destinations/himalayan-trekking-adventure.png", imageAlt: "Himalayan trekking route in Nepal" },
+  "corporate-travel-vehicle-rental-karnali": { coverImage: "/images/destinations/car-rental-nepal-with-driver.png", imageAlt: "Vehicle rental in Nepal with driver" },
+};
+
 function post(
   slug: string,
   title: string,
@@ -20,6 +32,8 @@ function post(
     excerpt,
     outline,
     content: outline.map((item) => `${item}: Practical guidance depends on season, route condition, vehicle choice, and group needs. Contact Bheri Karnali Tours & Travels for current Karnali travel support.`),
+    coverImage: blogCoverImages[slug]?.coverImage || "/images/karnali/rara-lake.jpg",
+    imageAlt: blogCoverImages[slug]?.imageAlt || "Karnali travel planning image",
   };
 }
 

@@ -30,7 +30,7 @@ export default async function InquiryDetailPage({ params }: PageProps) {
           <h1 className="mt-2 text-3xl font-black text-navyInk">{inquiry.fullName}</h1>
         </div>
         <div className="flex flex-wrap gap-3">
-          <a className="btn-dark" href={getCustomerWhatsAppUrl(inquiry.phone)} target="_blank" rel="noreferrer">Open WhatsApp</a>
+          <a className="btn-dark" href={getCustomerWhatsAppUrl(inquiry.phone)} target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
           <a className="btn-dark" href={`tel:${inquiry.phone}`}>Call</a>
         </div>
       </div>

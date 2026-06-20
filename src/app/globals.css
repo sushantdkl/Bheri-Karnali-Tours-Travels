@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #102033;
-  background: #fffaf1;
+  color: #082032;
+  background: #fff7ed;
 }
 
 html {
@@ -14,9 +14,10 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(26, 167, 161, 0.16), transparent 34rem),
-    radial-gradient(circle at 90% 10%, rgba(242, 140, 40, 0.14), transparent 26rem),
-    linear-gradient(180deg, #fffaf1 0%, #ffffff 42%, #f5fbf8 100%);
+    radial-gradient(circle at top left, rgba(2, 132, 199, 0.16), transparent 34rem),
+    radial-gradient(circle at 92% 6%, rgba(249, 115, 22, 0.16), transparent 28rem),
+    linear-gradient(180deg, #fff7ed 0%, #ffffff 44%, #f0f9ff 100%);
+  color: #082032;
 }
 
 a,
@@ -34,7 +35,7 @@ img {
 }
 
 .section-pad {
-  @apply px-5 py-16 sm:px-8 lg:px-10 lg:py-24;
+  @apply px-5 py-16 sm:px-8 lg:px-10 lg:py-24 xl:py-28;
 }
 
 .container-main {
@@ -42,41 +43,41 @@ img {
 }
 
 .eyebrow {
-  @apply text-xs font-bold uppercase tracking-[0.18em] text-saffron;
+  @apply text-xs font-black uppercase tracking-[0.2em] text-sunset;
 }
 
 .btn-primary {
-  @apply inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-saffron to-sunset px-6 py-3 text-sm font-black text-navyInk shadow-premium hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(239,91,42,0.28)];
+  @apply inline-flex min-h-12 items-center justify-center rounded-full bg-gradient-to-r from-saffron via-sunset to-sunset px-6 py-3 text-sm font-black text-white shadow-[0_18px_42px_rgba(249,115,22,0.28)] hover:-translate-y-0.5 hover:shadow-[0_24px_54px_rgba(249,115,22,0.36)] focus:outline-none focus:ring-4 focus:ring-saffron/35;
 }
 
 .btn-secondary {
-  @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 bg-white/15 px-6 py-3 text-sm font-black text-white backdrop-blur hover:-translate-y-0.5 hover:bg-white/25;
+  @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 bg-white/15 px-6 py-3 text-sm font-black text-white backdrop-blur hover:-translate-y-0.5 hover:bg-white/25 focus:outline-none focus:ring-4 focus:ring-white/25;
 }
 
 .btn-dark {
-  @apply inline-flex min-h-12 items-center justify-center rounded-full bg-navyInk px-6 py-3 text-sm font-black text-white shadow-[0_14px_32px_rgba(16,32,51,0.18)] hover:-translate-y-0.5 hover:bg-emeraldDeep;
+  @apply inline-flex min-h-12 items-center justify-center rounded-full bg-navyInk px-6 py-3 text-sm font-black text-white shadow-[0_16px_38px_rgba(8,32,50,0.22)] hover:-translate-y-0.5 hover:bg-royal focus:outline-none focus:ring-4 focus:ring-royal/25;
 }
 
 .btn-outline {
-  @apply inline-flex min-h-12 items-center justify-center rounded-full border border-forest/20 bg-white px-6 py-3 text-sm font-black text-forest hover:-translate-y-0.5 hover:border-forest hover:bg-cream;
+  @apply inline-flex min-h-12 items-center justify-center rounded-full border border-river/20 bg-white px-6 py-3 text-sm font-black text-navyInk shadow-sm hover:-translate-y-0.5 hover:border-river hover:bg-sky-50 hover:text-river focus:outline-none focus:ring-4 focus:ring-river/20;
 }
 
 .card {
-  @apply rounded-lg border border-emeraldDeep/10 bg-white shadow-[0_14px_38px_rgba(16,32,51,0.08)] hover:-translate-y-1 hover:shadow-premium;
+  @apply rounded-2xl border border-navyInk/10 bg-white shadow-[0_16px_42px_rgba(8,32,50,0.08)] hover:-translate-y-1 hover:border-river/25 hover:shadow-premium;
 }
 
 .premium-panel {
-  @apply rounded-lg border border-white/20 bg-white/90 shadow-premium backdrop-blur;
+  @apply rounded-2xl border border-white/30 bg-white/90 shadow-premium backdrop-blur;
 }
 
 .badge {
-  @apply inline-flex items-center rounded-full bg-cream px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-forest;
+  @apply inline-flex items-center rounded-full bg-orange-50 px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-sunset;
 }
 
 .section-gradient {
-  @apply bg-[radial-gradient(circle_at_top_left,rgba(26,167,161,0.14),transparent_32rem),linear-gradient(135deg,#fff7ea_0%,#ffffff_45%,#eefaf6_100%)];
+  @apply bg-[radial-gradient(circle_at_top_left,rgba(2,132,199,0.13),transparent_32rem),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.12),transparent_28rem),linear-gradient(135deg,#fff7ed_0%,#ffffff_48%,#eff6ff_100%)];
 }
 
 .input-field {
-  @apply w-full rounded-lg border border-navyInk/15 bg-white px-4 py-3 text-sm text-navyInk outline-none ring-saffron/30 placeholder:text-navyInk/45 focus:border-saffron focus:ring-4;
+  @apply w-full rounded-xl border border-navyInk/15 bg-white px-4 py-3 text-sm font-semibold text-navyInk outline-none ring-saffron/30 placeholder:text-navyInk/45 focus:border-saffron focus:ring-4;
 }

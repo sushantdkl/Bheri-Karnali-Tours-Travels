@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BRAND_ICON } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -20,7 +22,7 @@ export function AdminSidebar() {
     <aside className="border-r border-navyInk/10 bg-white lg:fixed lg:inset-y-0 lg:left-0 lg:w-72">
       <div className="flex h-full flex-col p-5">
         <Link href="/admin/dashboard" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-lg bg-emeraldDeep text-sm font-black text-saffron">BK</span>
+          <Image src={BRAND_ICON} alt="Bheri Karnali Tours & Travels logo" width={44} height={44} className="h-11 w-11 rounded-lg object-contain" />
           <span>
             <span className="block text-sm font-black text-navyInk">Admin Panel</span>
             <span className="text-xs font-semibold text-forest">Bheri Karnali</span>

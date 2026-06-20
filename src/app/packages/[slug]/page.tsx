@@ -60,7 +60,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
           <h1 className="mt-4 max-w-4xl text-4xl font-black sm:text-6xl">{tour.title}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/78">{tour.summary}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={getWhatsAppUrl(tour.whatsappMessage || `Hello Bheri Karnali Tours & Travels, I want to book ${tour.title}.`)} target="_blank" rel="noreferrer" className="btn-primary">
+            <a href={getWhatsAppUrl(tour.whatsappMessage || `Hello Bheri Karnali Tours & Travels, I want to know the latest cost and itinerary for the ${tour.title}.`)} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book This Tour
             </a>
             <a href="/booking" className="btn-secondary">Customize Trip</a>
@@ -80,7 +80,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
               <div><dt className="font-black text-forest">Price</dt><dd className="text-navyInk/70">{tour.priceFrom}</dd></div>
               <div><dt className="font-black text-forest">Vehicle</dt><dd className="text-navyInk/70">{tour.vehicleRecommendation || "Route-based recommendation"}</dd></div>
             </dl>
-            <a href={getWhatsAppUrl(tour.whatsappMessage || `Hello Bheri Karnali Tours & Travels, I want to inquire about the ${tour.title} package.`)} target="_blank" rel="noreferrer" className="btn-primary mt-6 w-full">
+            <a href={getWhatsAppUrl(tour.whatsappMessage || `Hello Bheri Karnali Tours & Travels, I want to know the latest cost and itinerary for the ${tour.title}.`)} target="_blank" rel="noopener noreferrer" className="btn-primary mt-6 w-full">
               WhatsApp Inquiry
             </a>
             <a href="/booking" className="btn-outline mt-3 w-full">Send Booking Inquiry</a>

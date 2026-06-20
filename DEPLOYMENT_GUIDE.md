@@ -45,6 +45,12 @@ Do not force push unless you explicitly understand the risk and intend to replac
 3. Add environment variables.
 4. Deploy after database is ready.
 
+Business contact for production verification:
+
+- Proprietor: Gyanendra Gautam
+- Phone/WhatsApp: `+977 970-5432357`
+- WhatsApp link: `https://wa.me/9779705432357`
+
 ## PostgreSQL Provider Setup
 
 Use Vercel Postgres, Neon, Supabase, Railway, or another managed PostgreSQL provider. Copy the provider-recommended pooled or production connection string into `DATABASE_URL`.
@@ -54,8 +60,8 @@ Use Vercel Postgres, Neon, Supabase, Railway, or another managed PostgreSQL prov
 ```env
 DATABASE_URL=
 NEXT_PUBLIC_SITE_URL=
-NEXT_PUBLIC_WHATSAPP_NUMBER=9779858032357
-NEXT_PUBLIC_PHONE_NUMBER=9858032357
+NEXT_PUBLIC_WHATSAPP_NUMBER=9779705432357
+NEXT_PUBLIC_PHONE_NUMBER=+9779705432357
 ADMIN_JWT_SECRET=
 ADMIN_COOKIE_NAME=bheri_karnali_admin_session
 ADMIN_EMAIL=
@@ -70,6 +76,14 @@ Local:
 
 ```bash
 npx prisma migrate dev
+```
+
+If local Windows `npx` fails because the project folder path contains `&`, use the matching npm scripts:
+
+```bash
+npm run prisma:generate
+npm run prisma:migrate
+npm run prisma:seed
 ```
 
 Production:
@@ -113,7 +127,7 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 - `/sitemap.xml` loads.
 - `/robots.txt` loads.
 - WhatsApp links open correct number.
-- Phone links use `9858032357`.
+- Phone links use `tel:+9779705432357`.
 
 ## Common Errors And Fixes
 

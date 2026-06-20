@@ -1,6 +1,7 @@
 import { AdventureCategories } from "@/components/home/AdventureCategories";
 import { DestinationHighlights } from "@/components/home/DestinationHighlights";
 import { Hero } from "@/components/home/Hero";
+import { GalleryPreview } from "@/components/home/GalleryPreview";
 import { InquirySection } from "@/components/home/InquirySection";
 import { PopularPackages } from "@/components/home/PopularPackages";
 import { VehicleRentalPreview } from "@/components/home/VehicleRentalPreview";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <VehicleRentalPreview />
       <WhyChoose />
       <DestinationHighlights />
+      <GalleryPreview />
       <SafetySupportSection />
       <InquirySection />
       <TestimonialsSection />

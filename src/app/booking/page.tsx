@@ -26,7 +26,7 @@ export default function BookingPage() {
             <div className="rounded-lg bg-navyInk p-5 text-white">
               <p className="font-black">Not sure what to choose?</p>
               <p className="mt-2 text-sm leading-7 text-white/72">Message us on WhatsApp for fast Karnali route and vehicle guidance.</p>
-              <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary mt-4">WhatsApp Now</a>
+          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn-primary mt-4">WhatsApp Now</a>
             </div>
           </div>
         </div>

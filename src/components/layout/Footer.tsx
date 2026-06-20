@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { COMPANY_NAME, DISPLAY_PHONE, NAV_LINKS } from "@/lib/constants";
+import { BRAND_LOGO, COMPANY_NAME, DISPLAY_PHONE, NAV_LINKS, PROPRIETOR_NAME, TEL_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const destinations = ["Rara Lake", "Shey Phoksundo", "Surkhet", "Dailekh", "Jumla", "Humla", "Dolpo"];
@@ -10,12 +11,13 @@ export function Footer() {
     <footer className="bg-emeraldDeep px-5 py-14 text-white sm:px-8 lg:px-10">
       <div className="container-main grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr]">
         <div>
-          <p className="text-xl font-black">{COMPANY_NAME}</p>
+          <Image src={BRAND_LOGO} alt="Bheri Karnali Tours & Travels logo" width={240} height={64} className="h-16 w-auto rounded-md bg-white/95 object-contain p-2" />
           <p className="mt-4 max-w-md text-sm leading-7 text-white/70">
             Premium tour and travel in Surkhet for Karnali adventures, Nepal trips, and reliable vehicle rental.
           </p>
+          <p className="mt-3 text-sm font-bold text-white/80">Proprietor: {PROPRIETOR_NAME}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href={`tel:${DISPLAY_PHONE.replace("-", "")}`} className="btn-primary">
+            <a href={`tel:${TEL_PHONE}`} className="btn-primary">
               Call {DISPLAY_PHONE}
             </a>
             <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn-secondary">

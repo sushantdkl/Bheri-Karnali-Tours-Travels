@@ -25,7 +25,7 @@ Request body:
 ```json
 {
   "fullName": "Test User",
-  "phone": "9858032357",
+  "phone": "+9779705432357",
   "email": "guest@example.com",
   "inquiryType": "TOUR_PACKAGE",
   "destination": "Rara Lake",
@@ -63,7 +63,7 @@ Request body:
 ```json
 {
   "fullName": "Test User",
-  "phone": "9858032357",
+  "phone": "+9779705432357",
   "email": "guest@example.com",
   "message": "I need help planning a Karnali trip.",
   "preferredContact": "WHATSAPP",
@@ -89,7 +89,7 @@ Request body:
 ```json
 {
   "fullName": "Test User",
-  "phone": "9858032357",
+  "phone": "+9779705432357",
   "vehicleType": "Scorpio Jeep",
   "pickupLocation": "Surkhet",
   "dropoffLocation": "Rara route",

@@ -5,7 +5,7 @@ import type { GalleryItem } from "@/types";
 import { Lightbox } from "@/components/shared/Lightbox";
 import { MediaCard } from "@/components/shared/MediaCard";
 
-const filters = ["All", "Destinations", "Tours", "Vehicles", "Culture", "Adventure"] as const;
+const filters = ["All", "Destinations", "Tours", "Vehicles", "Culture", "Adventure", "Hospitality"] as const;
 
 export function GalleryGrid({ items }: { items: GalleryItem[] }) {
   const [active, setActive] = useState<(typeof filters)[number]>("All");

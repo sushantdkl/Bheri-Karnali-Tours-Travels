@@ -2,7 +2,7 @@ import type { Vehicle } from "@/types";
 
 const priceNote = "Price depends on route, travel date, road condition, number of days, and driver/vehicle availability.";
 
-export const vehicles: Vehicle[] = [
+const rawVehicles: Vehicle[] = [
   {
     slug: "scorpio-jeep",
     name: "Scorpio Jeep",
@@ -23,7 +23,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Scorpio Jeep Rental in Surkhet",
     seoDescription: "Rent a Scorpio Jeep from Surkhet for Rara, Jumla, Kalikot, Dailekh, and Karnali routes.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "4wd-jeep-karnali-route",
@@ -45,7 +45,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "4WD Jeep Rental for Karnali Routes",
     seoDescription: "Book 4WD Jeep rental from Surkhet for remote Karnali routes and field travel.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "bolero-pickup",
@@ -67,7 +67,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Bolero Pickup Rental in Surkhet",
     seoDescription: "Rent a Bolero Pickup from Surkhet for rural routes, project visits, and field travel.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "toyota-hiace",
@@ -89,7 +89,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Toyota Hiace Rental in Surkhet",
     seoDescription: "Book Toyota Hiace rental from Surkhet for group travel, student tours, and transfers.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "tourist-bus",
@@ -111,7 +111,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Tourist Bus Rental in Surkhet",
     seoDescription: "Arrange tourist bus rental from Surkhet for schools, religious groups, events, and large tours.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "car-city-highway",
@@ -133,7 +133,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Car Rental in Surkhet",
     seoDescription: "Book private car rental in Surkhet for airport pickup, local sightseeing, Nepalgunj, and highway travel.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "suv-family-trip",
@@ -155,7 +155,7 @@ export const vehicles: Vehicle[] = [
     seoTitle: "SUV Rental for Family Trips from Surkhet",
     seoDescription: "Rent an SUV from Surkhet for family trips, Rara tours, Dailekh routes, and private travel.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "mini-bus-group-tour",
@@ -177,6 +177,18 @@ export const vehicles: Vehicle[] = [
     seoTitle: "Mini Bus Rental in Surkhet",
     seoDescription: "Book mini bus rental from Surkhet for student tours, family groups, and official travel.",
     active: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
 ];
+
+const jeepImage = "/images/destinations/car-rental-nepal-with-driver.png";
+const fleetImage = "/images/destinations/vehicle-rental-car-jeep-van-bus.png";
+
+export const vehicles: Vehicle[] = rawVehicles.map((vehicle) => {
+  const isJeep = /jeep|4wd|scorpio/i.test(`${vehicle.name} ${vehicle.type || ""}`);
+  return {
+    ...vehicle,
+    image: isJeep ? jeepImage : fleetImage,
+    imageAlt: isJeep ? "Jeep rental from Surkhet for Karnali routes" : "Car, jeep, van and bus rental options",
+  };
+});

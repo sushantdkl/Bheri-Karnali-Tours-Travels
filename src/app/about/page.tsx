@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CTASection } from "@/components/shared/CTASection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SafetySupportSection, TestimonialsSection } from "@/components/shared/TrustSections";
+import { PROPRIETOR_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
@@ -28,8 +29,11 @@ export default function AboutPage() {
             <p className="mt-6 text-base leading-8 text-navyInk/72">
               Surkhet is the working gateway for many Karnali routes. Our role is to make complex travel feel clear: where to go, when to travel, which vehicle fits, how many days to keep, and how to stay flexible when roads or weather change.
             </p>
+            <p className="mt-4 rounded-lg bg-white/70 p-4 text-sm font-bold leading-7 text-navyInk shadow-sm">
+              Bheri Karnali Tours & Travels is led by proprietor {PROPRIETOR_NAME}, with a focus on reliable Karnali travel planning, vehicle rental from Surkhet, and personalized tour support.
+            </p>
           </div>
-          <Image src="/images/karnali-hero.png" alt="Karnali travel landscape" width={900} height={560} className="rounded-lg shadow-premium" />
+          <Image src="/images/karnali/rara-lake.jpg" alt="Rara Lake and Karnali mountain landscape" width={900} height={560} className="rounded-lg object-cover shadow-premium" />
         </div>
       </section>
       <section className="section-pad bg-white">

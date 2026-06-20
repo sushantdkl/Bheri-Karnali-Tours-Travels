@@ -13,7 +13,7 @@ const reasons = [
 
 export function WhyChoose() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad section-gradient">
       <div className="container-main grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
         <SectionHeading
           eyebrow="Why choose us"
@@ -23,6 +23,7 @@ export function WhyChoose() {
         <div className="grid gap-4 sm:grid-cols-2">
           {reasons.map((reason) => (
             <div key={reason} className="card p-5">
+              <div className="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-saffron to-river" />
               <p className="text-lg font-black text-navyInk">{reason}</p>
             </div>
           ))}

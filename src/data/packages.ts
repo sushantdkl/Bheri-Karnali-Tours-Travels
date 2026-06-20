@@ -3,7 +3,7 @@ import type { TourPackage } from "@/types";
 const commonIncludes = ["Trip planning support", "Route guidance", "Vehicle coordination when needed", "WhatsApp communication support"];
 const commonExcludes = ["Meals unless quoted", "Accommodation unless quoted", "Personal expenses", "Travel insurance", "Permits or entry fees unless confirmed"];
 
-export const tourPackages: TourPackage[] = [
+const rawTourPackages: TourPackage[] = [
   {
     slug: "rara-lake-tour-from-surkhet",
     title: "Rara Lake Tour from Surkhet",
@@ -39,7 +39,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Families", "Student groups", "Photo travelers", "Domestic tourists"],
     idealFor: ["Families", "Students", "Groups", "First-time Karnali travelers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "rara-lake-jeep-tour",
@@ -73,7 +73,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Private groups", "Families", "Officials", "Photo travelers"],
     idealFor: ["Private Jeep travelers", "Small groups"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "rara-lake-family-tour",
@@ -107,7 +107,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Families", "Senior travelers", "Private groups"],
     idealFor: ["Families", "Comfort-focused travelers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "shey-phoksundo-lake-adventure",
@@ -141,7 +141,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Adventure travelers", "Trekking groups", "Researchers", "Experienced guests"],
     idealFor: ["Trekkers", "Remote adventure travelers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "lower-dolpo-trek",
@@ -175,7 +175,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Trekkers", "Adventure groups", "Researchers"],
     idealFor: ["Experienced trekkers", "Remote travel groups"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "humla-limi-valley-adventure",
@@ -209,7 +209,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Expedition groups", "Experienced trekkers", "Documentary teams"],
     idealFor: ["Remote adventure travelers", "Research teams"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "jumla-sinja-valley-cultural-tour",
@@ -243,7 +243,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Culture lovers", "Educational tours", "Families", "Official groups"],
     idealFor: ["Students", "Culture travelers", "Official groups"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "dailekh-heritage-eternal-flame-tour",
@@ -277,7 +277,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Families", "Pilgrims", "Official groups", "Short holidays"],
     idealFor: ["Pilgrims", "Families", "Short-trip travelers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "surkhet-valley-sightseeing-tour",
@@ -311,7 +311,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Transit guests", "Families", "Official visitors"],
     idealFor: ["Short-stay travelers", "Airport transit guests"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "karnali-river-rafting-experience",
@@ -345,7 +345,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Youth groups", "Adventure clubs", "Corporate retreats", "Student tours"],
     idealFor: ["Adventure groups", "Corporate teams", "Students"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "kalikot-scenic-road-trip",
@@ -379,7 +379,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Road-trip travelers", "Official visitors", "Route explorers"],
     idealFor: ["Road trip travelers", "Small groups"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "jajarkot-cultural-nature-tour",
@@ -413,7 +413,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Offbeat travelers", "Culture groups", "Field teams"],
     idealFor: ["Culture travelers", "Official field visitors"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "salyan-west-rukum-hill-tour",
@@ -447,7 +447,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Groups", "Field teams", "Culture travelers"],
     idealFor: ["Official groups", "Hill-route travelers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "student-educational-tour-karnali",
@@ -481,7 +481,7 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Schools", "Colleges", "Youth groups"],
     idealFor: ["Student groups", "Teachers", "Educational institutions"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "corporate-official-karnali-travel-package",
@@ -515,6 +515,84 @@ export const tourPackages: TourPackage[] = [
     active: true,
     bestFor: ["Corporate teams", "NGO/INGO field teams", "Official visitors", "Project teams"],
     idealFor: ["Corporate teams", "Official groups", "Field workers"],
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
 ];
+
+const packageMedia: Record<string, { coverImage: string; imageAlt: string; galleryImages?: string[] }> = {
+  "rara-lake-tour-from-surkhet": {
+    coverImage: "/images/karnali/rara-lake.jpg",
+    imageAlt: "Panoramic view of Rara Lake in Karnali",
+    galleryImages: ["/images/karnali/rara-lake.jpg", "/images/destinations/rara-lake-panorama.png", "/images/destinations/rara-lake-camping-sunrise.png", "/images/karnali/rara-lake-2.jpg"],
+  },
+  "rara-lake-jeep-tour": {
+    coverImage: "/images/destinations/rara-lake-camping-sunrise.png",
+    imageAlt: "Camping beside Rara Lake at sunrise",
+    galleryImages: ["/images/destinations/rara-lake-camping-sunrise.png", "/images/karnali/rara-lake.jpg", "/images/karnali/rara-lake-2.jpg"],
+  },
+  "rara-lake-family-tour": {
+    coverImage: "/images/karnali/rara-lake-2.jpg",
+    imageAlt: "Rara Lake family tour landscape",
+    galleryImages: ["/images/karnali/rara-lake-2.jpg", "/images/karnali/rara-lake.jpg", "/images/destinations/rara-lake-panorama.png"],
+  },
+  "shey-phoksundo-lake-adventure": {
+    coverImage: "/images/karnali/phoksundo-lake.jpg",
+    imageAlt: "Shey Phoksundo Lake in Dolpo",
+    galleryImages: ["/images/karnali/phoksundo-lake.jpg", "/images/karnali/phoksundo-lake-2.jpg", "/images/karnali/phoksundo-lake-3.jpg"],
+  },
+  "lower-dolpo-trek": {
+    coverImage: "/images/destinations/himalayan-trekking-adventure.png",
+    imageAlt: "Himalayan trekking route in Nepal",
+  },
+  "humla-limi-valley-adventure": {
+    coverImage: "/images/destinations/himalayan-trekking-adventure.png",
+    imageAlt: "Himalayan trekking route in Nepal",
+  },
+  "jumla-sinja-valley-cultural-tour": {
+    coverImage: "/images/karnali/apple-jumla.jpg",
+    imageAlt: "Apple orchards and cultural travel in Jumla",
+  },
+  "dailekh-heritage-eternal-flame-tour": {
+    coverImage: "/images/karnali/paduka-temple-dailekh.jpg",
+    imageAlt: "Paduka Temple heritage site in Dailekh",
+  },
+  "surkhet-valley-sightseeing-tour": {
+    coverImage: "/images/surkhet/kakrebihar.jpg",
+    imageAlt: "Kakrebihar heritage site in Surkhet",
+  },
+  "karnali-river-rafting-experience": {
+    coverImage: "/images/karnali/karnali-river.jpg",
+    imageAlt: "Karnali River adventure route",
+  },
+  "student-educational-tour-karnali": {
+    coverImage: "/images/destinations/karnali-cultural-temple-mountain.png",
+    imageAlt: "Cultural heritage temple in Karnali mountain region",
+  },
+  "corporate-official-karnali-travel-package": {
+    coverImage: "/images/destinations/car-rental-nepal-with-driver.png",
+    imageAlt: "Vehicle rental in Nepal with driver",
+  },
+  "kalikot-scenic-road-trip": {
+    coverImage: "/images/karnali/karnali-river.jpg",
+    imageAlt: "Karnali River corridor route near Kalikot",
+  },
+  "jajarkot-cultural-nature-tour": {
+    coverImage: "/images/karnali/bheri-corridor-jajarkot.jpg",
+    imageAlt: "Bheri corridor landscape in Jajarkot",
+  },
+  "salyan-west-rukum-hill-tour": {
+    coverImage: "/images/karnali/kupinde-daha.jpg",
+    imageAlt: "Kupinde Daha lake and hill route",
+  },
+};
+
+export const tourPackages: TourPackage[] = rawTourPackages.map((tour) => {
+  const media = packageMedia[tour.slug];
+  return {
+    ...tour,
+    image: media?.coverImage || tour.coverImage || tour.image,
+    coverImage: media?.coverImage || tour.coverImage || tour.image,
+    galleryImages: media?.galleryImages || tour.galleryImages,
+    imageAlt: media?.imageAlt || tour.imageAlt || `${tour.title} in Karnali`,
+  };
+});

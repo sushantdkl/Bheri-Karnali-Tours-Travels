@@ -1,5 +1,5 @@
 import type { FAQ, TourPackage } from "@/types";
-import { COMPANY_NAME, PHONE_NUMBER, SITE_URL, WHATSAPP_NUMBER } from "@/lib/constants";
+import { COMPANY_NAME, PHONE_NUMBER, PROPRIETOR_NAME, SITE_URL, WHATSAPP_NUMBER } from "@/lib/constants";
 
 const areaServed = ["Surkhet", "Karnali Province", "Nepal"];
 const services = [
@@ -20,11 +20,17 @@ const address = {
   addressCountry: "NP",
 };
 
+const founder = {
+  "@type": "Person",
+  name: PROPRIETOR_NAME,
+};
+
 export function travelAgencyJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     name: COMPANY_NAME,
+    founder,
     url: SITE_URL,
     telephone: PHONE_NUMBER,
     address,
@@ -48,6 +54,7 @@ export function localBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: COMPANY_NAME,
+    founder,
     url: SITE_URL,
     telephone: PHONE_NUMBER,
     address,

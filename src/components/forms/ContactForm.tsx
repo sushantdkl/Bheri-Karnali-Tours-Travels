@@ -81,7 +81,7 @@ export function ContactForm() {
               ))}
             </ul>
           ) : null}
-          <a href={getWhatsAppUrl()} target="_blank" rel="noreferrer" className="btn-primary mt-4">WhatsApp Us</a>
+          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn-primary mt-4">WhatsApp Us</a>
         </div>
       ) : null}
     </form>

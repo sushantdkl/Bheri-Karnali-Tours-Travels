@@ -2,8 +2,8 @@
 
 ## Pre-Launch
 
-- [ ] Confirm company phone number: `9858032357`.
-- [ ] Confirm WhatsApp number: `9779858032357`.
+- [ ] Confirm company phone number: `+977 970-5432357`.
+- [ ] Confirm WhatsApp number: `9779705432357`.
 - [ ] Confirm business address before adding an exact map address.
 - [ ] Replace placeholder images with approved client-owned images.
 - [ ] Confirm tour package wording.

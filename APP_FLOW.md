@@ -47,7 +47,7 @@
 ## WhatsApp Flow
 
 1. User clicks WhatsApp CTA.
-2. Browser opens `https://wa.me/9779858032357`.
+2. Browser opens `https://wa.me/9779705432357`.
 3. User sends direct message to the company.
 
 ## Admin Login Flow

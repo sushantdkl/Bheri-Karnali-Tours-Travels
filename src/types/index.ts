@@ -141,7 +141,7 @@ export interface RentalRoute {
 
 export interface GalleryItem {
   title: string;
-  category: "Destinations" | "Tours" | "Vehicles" | "Culture" | "Adventure";
+  category: "Destinations" | "Tours" | "Vehicles" | "Culture" | "Adventure" | "Hospitality";
   location: string;
   image?: string;
   alt: string;

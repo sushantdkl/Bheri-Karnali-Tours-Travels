@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ResponsiveImage } from "@/components/shared/ResponsiveImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { blogPosts } from "@/data/blog";
 
@@ -22,12 +23,15 @@ export default function BlogPage() {
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {blogPosts.map((post) => (
-            <article key={post.title} className="card p-6">
-              <p className="eyebrow">{post.category}</p>
-              <h2 className="mt-3 text-2xl font-black text-navyInk">{post.title}</h2>
-              <p className="mt-2 text-xs font-bold text-river">{post.readingTime}</p>
-              <p className="mt-4 text-sm leading-7 text-navyInk/70">{post.excerpt}</p>
-              <Link href={`/blog/${post.slug}`} className="btn-outline mt-5 px-4 py-2.5">Read Guide</Link>
+            <article key={post.title} className="card overflow-hidden">
+              <ResponsiveImage src={post.coverImage} alt={post.imageAlt || post.title} title={post.title} subtitle={post.category} className="h-44 w-full rounded-none" sizes="(max-width: 768px) 100vw, 25vw" />
+              <div className="p-6">
+                <p className="eyebrow">{post.category}</p>
+                <h2 className="mt-3 text-2xl font-black text-navyInk">{post.title}</h2>
+                <p className="mt-2 text-xs font-bold text-river">{post.readingTime}</p>
+                <p className="mt-4 text-sm leading-7 text-navyInk/70">{post.excerpt}</p>
+                <Link href={`/blog/${post.slug}`} className="btn-outline mt-5 px-4 py-2.5">Read Guide</Link>
+              </div>
             </article>
           ))}
         </div>

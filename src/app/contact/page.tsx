@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { COMPANY_NAME, DISPLAY_PHONE } from "@/lib/constants";
+import { COMPANY_NAME, DISPLAY_PHONE, PROPRIETOR_NAME, TEL_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { FAQSection } from "@/components/shared/TrustSections";
 import { rentalRoutes } from "@/data/routes";
@@ -29,8 +29,13 @@ export default function ContactPage() {
               titleAs="h1"
             />
             <div className="mt-8 grid gap-4">
-              <a className="card p-5 text-lg font-black text-navyInk" href={`tel:${DISPLAY_PHONE.replace("-", "")}`}>Phone: {DISPLAY_PHONE}</a>
-              <a className="card p-5 text-lg font-black text-forest" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">WhatsApp: +977 {DISPLAY_PHONE}</a>
+              <div className="card p-5">
+                <p className="font-black text-navyInk">Company</p>
+                <p className="mt-2 text-sm leading-7 text-navyInk/70">{COMPANY_NAME}</p>
+                <p className="mt-1 text-sm leading-7 text-navyInk/70">Proprietor: {PROPRIETOR_NAME}</p>
+              </div>
+              <a className="card p-5 text-lg font-black text-navyInk" href={`tel:${TEL_PHONE}`}>Phone: {DISPLAY_PHONE}</a>
+              <a className="card p-5 text-lg font-black text-forest" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">WhatsApp: {DISPLAY_PHONE}</a>
               <div className="card p-5">
                 <p className="font-black text-navyInk">Business base</p>
                 <p className="mt-2 text-sm leading-7 text-navyInk/70">Surkhet, Karnali Province, Nepal</p>

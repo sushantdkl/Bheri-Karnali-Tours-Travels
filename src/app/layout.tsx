@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { WhatsAppFloat } from "@/components/shared/WhatsAppFloat";
-import { COMPANY_NAME, SITE_URL } from "@/lib/constants";
+import { COMPANY_NAME, DEFAULT_OG_IMAGE, SITE_URL } from "@/lib/constants";
 import { localBusinessJsonLd, travelAgencyJsonLd, vehicleRentalServiceJsonLd } from "@/lib/seo/jsonLd";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Book Karnali tours, custom Nepal trips, and reliable vehicles from Surkhet with local experts.",
     url: SITE_URL,
     siteName: COMPANY_NAME,
-    images: [{ url: "/images/karnali-hero.png", width: 1600, height: 900, alt: "Karnali travel landscape" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1600, height: 900, alt: "Rara Lake and Karnali mountain landscape" }],
     locale: "en_NP",
     type: "website",
   },

@@ -137,3 +137,5 @@ npx prisma migrate dev
 npx prisma db seed
 npm run build
 ```
+
+On the current Windows folder path, `npm run prisma:generate` is the verified Prisma Client generation command because the folder name contains `&`, which can break the Windows `npx` wrapper.

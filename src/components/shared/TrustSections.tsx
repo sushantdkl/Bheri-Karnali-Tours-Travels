@@ -11,7 +11,7 @@ const support = [
 
 export function SafetySupportSection() {
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-[linear-gradient(180deg,#ffffff_0%,#f0f9ff_100%)]">
       <div className="container-main grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionHeading
           eyebrow="Safety and support"
@@ -21,6 +21,7 @@ export function SafetySupportSection() {
         <div className="grid gap-4 sm:grid-cols-2">
           {support.map((item) => (
             <div key={item} className="card p-5">
+              <div className="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-saffron to-river" />
               <p className="text-lg font-black text-navyInk">{item}</p>
               <p className="mt-2 text-sm leading-6 text-navyInk/65">Clear, practical support for families, groups, students, and official travel.</p>
             </div>
@@ -39,6 +40,7 @@ export function TestimonialsSection() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {testimonials.map((item) => (
             <article key={item.name} className="card p-6">
+              <div className="mb-5 text-2xl font-black text-saffron">★★★★★</div>
               <p className="text-sm leading-7 text-navyInk/75">&ldquo;{item.quote}&rdquo;</p>
               <p className="mt-5 font-black text-navyInk">{item.name}</p>
               <p className="text-sm text-forest">{item.location}</p>

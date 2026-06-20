@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DISPLAY_PHONE, PHONE_NUMBER } from "@/lib/constants";
+import { DISPLAY_PHONE, TEL_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function WhatsAppFloat() {
@@ -13,7 +13,7 @@ export function WhatsAppFloat() {
           <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#25d366] px-3 py-2 text-center text-xs font-black text-white">
             WhatsApp
           </a>
-          <a href={`tel:${PHONE_NUMBER}`} className="rounded-full bg-navyInk px-3 py-2 text-center text-xs font-black text-white">
+          <a href={`tel:${TEL_PHONE}`} className="rounded-full bg-navyInk px-3 py-2 text-center text-xs font-black text-white">
             Call {DISPLAY_PHONE}
           </a>
         </div>
@@ -29,7 +29,7 @@ export function WhatsAppFloat() {
       </a>
       </div>
       <div className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-3 gap-2 rounded-lg border border-navyInk/10 bg-white/95 p-2 shadow-premium backdrop-blur lg:hidden">
-        <a href={`tel:${PHONE_NUMBER}`} aria-label={`Call ${DISPLAY_PHONE}`} className="rounded-lg bg-navyInk px-3 py-3 text-center text-xs font-black text-white">
+        <a href={`tel:${TEL_PHONE}`} aria-label={`Call ${DISPLAY_PHONE}`} className="rounded-lg bg-navyInk px-3 py-3 text-center text-xs font-black text-white">
           Call
         </a>
         <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat" className="rounded-lg bg-[#25d366] px-3 py-3 text-center text-xs font-black text-white">

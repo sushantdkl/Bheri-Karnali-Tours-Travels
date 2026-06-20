@@ -1,6 +1,6 @@
 import type { Destination } from "@/types";
 
-export const destinations: Destination[] = [
+const rawDestinations: Destination[] = [
   {
     slug: "rara-lake",
     name: "Rara Lake",
@@ -24,7 +24,7 @@ export const destinations: Destination[] = [
     seoDescription: "Explore Rara Lake with local Karnali route guidance, vehicle support, and Surkhet-based planning.",
     active: true,
     featured: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "shey-phoksundo-lake",
@@ -49,7 +49,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan a Shey Phoksundo Lake adventure with remote route and transport guidance.",
     active: true,
     featured: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "surkhet",
@@ -73,7 +73,7 @@ export const destinations: Destination[] = [
     seoDescription: "Use Surkhet as the gateway for Karnali tours, Rara routes, Dailekh trips, and vehicle rental.",
     active: true,
     featured: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "dailekh",
@@ -97,7 +97,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan a Dailekh heritage tour from Surkhet with vehicle support and practical route guidance.",
     active: true,
     featured: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "jumla",
@@ -121,7 +121,7 @@ export const destinations: Destination[] = [
     seoDescription: "Explore Jumla and nearby Sinja Valley with Karnali route and vehicle support.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "sinja-valley",
@@ -145,7 +145,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan a Sinja Valley cultural tour with Jumla route guidance and student group support.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "humla",
@@ -169,7 +169,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Humla and Limi Valley travel with remote Karnali route support.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "limi-valley",
@@ -193,7 +193,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan a Limi Valley adventure with careful Humla route and logistics guidance.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "dolpo",
@@ -217,7 +217,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Dolpo trekking and Phoksundo travel with remote Karnali support.",
     active: true,
     featured: true,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "kalikot",
@@ -241,7 +241,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Kalikot travel from Surkhet with scenic route and vehicle guidance.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "jajarkot",
@@ -265,7 +265,7 @@ export const destinations: Destination[] = [
     seoDescription: "Explore Jajarkot with cultural, nature, and route-based vehicle support from Surkhet.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "salyan",
@@ -289,7 +289,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Salyan hill travel and vehicle rental support from Surkhet.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "west-rukum",
@@ -313,7 +313,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan West Rukum hill travel with route-based vehicle support from Surkhet.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "karnali-river",
@@ -337,7 +337,7 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Karnali River rafting support and adventure travel logistics from Surkhet.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
   {
     slug: "nepalgunj-transit-point",
@@ -361,6 +361,88 @@ export const destinations: Destination[] = [
     seoDescription: "Plan Nepalgunj to Surkhet transfers and Karnali route connections.",
     active: true,
     featured: false,
-    image: "/images/karnali-hero.png",
+    image: "/images/karnali/rara-lake.jpg",
   },
 ];
+
+const destinationMedia: Record<string, { coverImage: string; imageAlt: string; galleryImages?: string[] }> = {
+  "rara-lake": {
+    coverImage: "/images/karnali/rara-lake.jpg",
+    imageAlt: "Panoramic view of Rara Lake in Karnali",
+    galleryImages: ["/images/karnali/rara-lake.jpg", "/images/destinations/rara-lake-panorama.png", "/images/destinations/rara-lake-camping-sunrise.png", "/images/karnali/rara-lake-2.jpg"],
+  },
+  "shey-phoksundo-lake": {
+    coverImage: "/images/karnali/phoksundo-lake.jpg",
+    imageAlt: "Shey Phoksundo Lake in Dolpo",
+    galleryImages: ["/images/karnali/phoksundo-lake.jpg", "/images/karnali/phoksundo-lake-2.jpg", "/images/karnali/phoksundo-lake-3.jpg"],
+  },
+  surkhet: {
+    coverImage: "/images/surkhet/bulbule-lake.jpg",
+    imageAlt: "Bulbule Lake in Surkhet",
+    galleryImages: ["/images/surkhet/bulbule-lake.jpg", "/images/surkhet/deuti-bajai.jpg", "/images/surkhet/kakrebihar.jpg", "/images/surkhet/ghantaghar-surkhet.jpg"],
+  },
+  dailekh: {
+    coverImage: "/images/karnali/paduka-temple-dailekh.jpg",
+    imageAlt: "Paduka Temple heritage site in Dailekh",
+  },
+  jumla: {
+    coverImage: "/images/karnali/apple-jumla.jpg",
+    imageAlt: "Apple orchards and cultural travel in Jumla",
+  },
+  "sinja-valley": {
+    coverImage: "/images/karnali/triveni-jumla.jpg",
+    imageAlt: "Cultural travel route in Jumla and Sinja Valley",
+  },
+  dolpo: {
+    coverImage: "/images/karnali/phoksundo-lake.jpg",
+    imageAlt: "Shey Phoksundo Lake and Dolpo route",
+  },
+  "karnali-river": {
+    coverImage: "/images/karnali/karnali-river.jpg",
+    imageAlt: "Karnali River adventure route",
+  },
+  humla: {
+    coverImage: "/images/destinations/himalayan-trekking-adventure.png",
+    imageAlt: "Himalayan trekking route in Nepal",
+  },
+  "limi-valley": {
+    coverImage: "/images/destinations/himalayan-trekking-adventure.png",
+    imageAlt: "Remote Himalayan trekking route in Nepal",
+  },
+  kalikot: {
+    coverImage: "/images/karnali/karnali-river.jpg",
+    imageAlt: "Karnali River corridor route near Kalikot",
+  },
+  jajarkot: {
+    coverImage: "/images/karnali/bheri-corridor-jajarkot.jpg",
+    imageAlt: "Bheri corridor landscape in Jajarkot",
+  },
+  salyan: {
+    coverImage: "/images/karnali/kupinde-daha.jpg",
+    imageAlt: "Kupinde Daha lake in Salyan",
+  },
+  "west-rukum": {
+    coverImage: "/images/karnali/shyarpu-lake-rukum-west.jpg",
+    imageAlt: "Shyarpu Lake in West Rukum",
+  },
+  "nepalgunj-transit-point": {
+    coverImage: "/images/destinations/domestic-international-air-ticketing.png",
+    imageAlt: "Domestic and international air ticketing support",
+  },
+};
+
+export const destinations: Destination[] = rawDestinations.map((destination) => {
+  const media = destinationMedia[destination.slug];
+  const fallback =
+    destination.category?.toLowerCase().includes("culture") || destination.name.toLowerCase().includes("heritage")
+      ? "/images/destinations/karnali-cultural-temple-mountain.png"
+      : "/images/karnali/rara-lake.jpg";
+
+  return {
+    ...destination,
+    image: media?.coverImage || destination.coverImage || destination.image || fallback,
+    coverImage: media?.coverImage || destination.coverImage || destination.image || fallback,
+    galleryImages: media?.galleryImages || destination.galleryImages,
+    imageAlt: media?.imageAlt || destination.imageAlt || `${destination.name} destination in Karnali`,
+  };
+});
