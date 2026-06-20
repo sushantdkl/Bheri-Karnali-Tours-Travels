@@ -1,0 +1,216 @@
+# Bheri Karnali Tours & Travels
+
+GitHub repository: https://github.com/sushantdkl/Bheri-Karnali-Tours-Travels.git
+
+## Project Overview
+
+Bheri Karnali Tours & Travels is a production-ready Next.js travel website and admin system for a Surkhet-based travel company serving Karnali Province and Nepal-wide routes. The site promotes Karnali tour packages, Rara Lake tours, Shey Phoksundo trips, Dolpo and Humla adventures, Jumla/Sinja cultural travel, Dailekh heritage tours, Surkhet sightseeing, Karnali river rafting support, and vehicle rental from Surkhet.
+
+The business goal is to generate qualified travel and vehicle rental leads, make WhatsApp booking easy, improve Google discoverability, and give the team an admin dashboard for managing inquiries and content.
+
+Contact:
+
+- Phone: `9858032357`
+- WhatsApp: https://wa.me/9779858032357
+- Location: Surkhet, Karnali Province, Nepal
+
+## Key Features
+
+- Public travel website with home, packages, vehicles, destinations, gallery, blog, about, contact, booking, privacy, and terms pages.
+- Karnali-focused tour package catalog and route guidance.
+- Vehicle rental page for Jeep, 4WD, Hiace, bus, car, and group travel needs.
+- WhatsApp-first conversion flow and phone CTA support.
+- Inquiry, contact, and vehicle rental APIs with Zod validation.
+- Prisma/PostgreSQL database foundation.
+- Secure admin login using bcryptjs and signed HTTP-only session cookies.
+- Protected admin dashboard for inquiries, packages, vehicles, destinations, and testimonials.
+- Admin inquiry CSV export.
+- SEO metadata, JSON-LD, sitemap, robots, and dynamic Open Graph image.
+- Placeholder-safe image/media system and gallery.
+- Vercel-ready deployment structure.
+
+## Tech Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Prisma ORM
+- PostgreSQL
+- Zod
+- bcryptjs
+- jose
+- Vercel deployment
+
+## Folder Structure
+
+```text
+prisma/                     Prisma schema and seed script
+public/images/              Brand, hero, destination, package, vehicle, gallery, icon, and OG images
+src/app/                    App Router pages and route handlers
+src/components/             Public, admin, form, layout, SEO, and shared UI components
+src/data/                   Static package, vehicle, destination, route, FAQ, blog, and gallery data
+src/lib/                    Constants, Prisma client, auth, rate limit, SEO, WhatsApp, analytics, email prep
+src/server/                 Server-side admin and inquiry operations
+src/types/                  Shared TypeScript types
+src/validations/            Zod schemas
+```
+
+## Environment Variables
+
+Create `.env` from `.env.example`.
+
+```env
+DATABASE_URL=
+NEXT_PUBLIC_SITE_URL=
+NEXT_PUBLIC_WHATSAPP_NUMBER=9779858032357
+NEXT_PUBLIC_PHONE_NUMBER=9858032357
+ADMIN_JWT_SECRET=
+ADMIN_COOKIE_NAME=bheri_karnali_admin_session
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+EMAIL_PROVIDER=
+ADMIN_NOTIFICATION_EMAIL=
+```
+
+Security notes:
+
+- Never expose `DATABASE_URL`.
+- Never expose `ADMIN_JWT_SECRET`.
+- Never commit `.env`.
+- Use a strong `ADMIN_JWT_SECRET` of at least 24 characters.
+- Public phone and WhatsApp values use `NEXT_PUBLIC_` because they are intended for the public website.
+
+## Local Setup
+
+```bash
+npm install
+npx prisma generate
+npx prisma migrate dev
+npx prisma db seed
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+Windows note: the local folder name contains `&`, so package scripts call Next, Prisma, ESLint, and TypeScript directly to avoid path shim issues.
+
+## Prisma Setup
+
+Generate Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Create local database tables:
+
+```bash
+npx prisma migrate dev
+```
+
+Seed packages, vehicles, destinations, testimonials, and admin user:
+
+```bash
+npx prisma db seed
+```
+
+## Admin Setup
+
+Set these variables before seeding:
+
+```env
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+ADMIN_JWT_SECRET=
+```
+
+The seed script hashes the admin password before saving it. Admin pages are available under `/admin/*`.
+
+## Build
+
+```bash
+npm run build
+```
+
+Useful QA commands:
+
+```bash
+npm run lint
+npm run typecheck
+npm run prisma:generate
+```
+
+## Vercel Deployment
+
+1. Push the project to GitHub.
+2. Import the repository in Vercel.
+3. Add all environment variables.
+4. Connect a PostgreSQL database provider.
+5. Use the provider-recommended production or pooled `DATABASE_URL`.
+6. Run production migrations with `npm run prisma:deploy`.
+7. Run `npm run prisma:seed` once for the initial admin.
+8. Deploy.
+9. Test public pages, forms, admin login, `/sitemap.xml`, and `/robots.txt`.
+
+## Public Pages
+
+- `/`
+- `/packages`
+- `/packages/[slug]`
+- `/vehicles`
+- `/destinations`
+- `/gallery`
+- `/about`
+- `/contact`
+- `/booking`
+- `/blog`
+- `/blog/[slug]`
+- `/privacy-policy`
+- `/terms-and-conditions`
+
+## Admin Pages
+
+- `/admin/login`
+- `/admin/dashboard`
+- `/admin/inquiries`
+- `/admin/inquiries/[id]`
+- `/admin/packages`
+- `/admin/vehicles`
+- `/admin/destinations`
+- `/admin/testimonials`
+
+## API Routes
+
+- `POST /api/inquiries`
+- `POST /api/contact`
+- `POST /api/vehicle-inquiries`
+- `POST /api/admin/auth/login`
+- `POST /api/admin/auth/logout`
+- `GET /api/admin/auth/me`
+- `GET /api/admin/inquiries/export`
+
+## Security Notes
+
+- Admin passwords are hashed with bcryptjs.
+- Admin sessions use signed JWTs in HTTP-only cookies.
+- Cookies use `secure: true` in production and `sameSite: lax`.
+- Public form APIs validate with Zod and include honeypot/rate-limit protection.
+- API errors return safe messages and do not expose stack traces.
+- `passwordHash` is never returned to the client.
+
+## Future Roadmap Summary
+
+- Real client-owned image replacement.
+- Email notifications and admin lead alerts.
+- Analytics and conversion tracking.
+- Package availability calendar.
+- Online payment planning.
+- Customer booking portal.
+- English/Nepali multilingual support.
+- Advanced SEO content engine.
+- Review collection workflow.
+- Vehicle availability and driver management.

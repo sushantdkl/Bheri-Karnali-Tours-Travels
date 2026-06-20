@@ -1,0 +1,173 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum InquiryType {
+  TOUR_PACKAGE
+  CUSTOM_TRIP
+  VEHICLE_RENTAL
+  GENERAL_CONTACT
+}
+
+enum PreferredContact {
+  WHATSAPP
+  CALL
+  EMAIL
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum LeadSource {
+  WEBSITE
+  WHATSAPP
+  PHONE
+  FACEBOOK
+  INSTAGRAM
+  REFERRAL
+  OTHER
+}
+
+enum AdminRole {
+  ADMIN
+  MANAGER
+  STAFF
+}
+
+model Inquiry {
+  id               String           @id @default(cuid())
+  fullName         String
+  phone            String
+  email            String?
+  inquiryType      InquiryType
+  destination      String?
+  packageSlug      String?
+  vehicleType      String?
+  travelDate       DateTime?
+  returnDate       DateTime?
+  numberOfPeople   Int?
+  pickupLocation   String?
+  dropoffLocation  String?
+  preferredContact PreferredContact
+  message          String?
+  status           InquiryStatus    @default(NEW)
+  source           LeadSource       @default(WEBSITE)
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@index([inquiryType])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model TourPackage {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  destination      String
+  duration         String
+  difficulty       String?
+  startingPoint    String
+  endingPoint      String?
+  shortDescription String
+  description      String
+  priceFrom        Decimal? @db.Decimal(10, 2)
+  currency         String   @default("NPR")
+  groupSize        String?
+  bestSeason       String?
+  includes         String[]
+  excludes         String[]
+  itinerary        Json?
+  images           String[]
+  isFeatured       Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([isFeatured])
+}
+
+model Vehicle {
+  id                  String   @id @default(cuid())
+  name                String
+  slug                String   @unique
+  type                String
+  seatingCapacity     String
+  luggageCapacity     String?
+  bestFor             String
+  description         String
+  pricePerDay         Decimal? @db.Decimal(10, 2)
+  pricePerKm          Decimal? @db.Decimal(10, 2)
+  withDriverAvailable Boolean  @default(true)
+  fourWheelDrive      Boolean  @default(false)
+  image               String?
+  isActive            Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([type])
+  @@index([isActive])
+}
+
+model Destination {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  district         String?
+  province         String   @default("Karnali")
+  category         String
+  shortDescription String
+  description      String
+  bestSeason       String?
+  altitude         String?
+  difficulty       String?
+  image            String?
+  isFeatured       Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([category])
+  @@index([isFeatured])
+  @@index([isActive])
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  location    String?
+  rating      Int
+  message     String
+  packageName String?
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isPublished])
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  role         AdminRole @default(STAFF)
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([role])
+  @@index([isActive])
+}

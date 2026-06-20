@@ -1,0 +1,26 @@
+import type { FAQ } from "@/types";
+
+export const faqs: FAQ[] = [
+  { category: "General", question: "How do I book a tour?", answer: "Send your destination, date, group size, and contact preference through the website form or WhatsApp. The team will reply with route and price guidance." },
+  { category: "General", question: "Can I book through WhatsApp?", answer: "Yes. WhatsApp is the fastest way to ask about routes, vehicles, latest costs, and available dates." },
+  { category: "General", question: "Do you provide vehicle rental from Surkhet?", answer: "Yes. Vehicle rental from Surkhet is available for local travel, Rara routes, Dailekh, Jumla, Kalikot, Nepalgunj, and official trips." },
+  { category: "General", question: "Can you customize Karnali tours?", answer: "Yes. Itineraries can be customized for families, students, groups, official visitors, pilgrims, trekkers, and adventure travelers." },
+  { category: "General", question: "What is the best time to visit Rara Lake?", answer: "Spring and autumn are usually preferred, but current weather and road condition should be checked before confirming dates." },
+  { category: "General", question: "Do you arrange trips for groups and students?", answer: "Yes. Student and group tours can be planned around budget, learning goals, route safety, and vehicle capacity." },
+  { category: "General", question: "Is vehicle rental available with driver?", answer: "Yes. Driver-supported rental is recommended for Karnali routes and remote road sections." },
+  { category: "General", question: "Can you help with official or corporate trips?", answer: "Yes. Official field visits, project routes, team travel, and vehicle support can be arranged based on requirements." },
+  { category: "General", question: "How do I get the latest price?", answer: "Contact by WhatsApp or form. Prices depend on route, date, vehicle type, road condition, days, and group size." },
+  { category: "General", question: "Are road conditions always the same?", answer: "No. Road condition may vary by season, rainfall, roadwork, and local situations. Current guidance is important." },
+  { category: "Vehicle Rental", question: "Which vehicle is best for Rara Lake route?", answer: "A Scorpio Jeep or 4WD Jeep is commonly recommended, depending on season, group size, and road condition." },
+  { category: "Vehicle Rental", question: "Do you provide 4WD vehicles?", answer: "Yes, 4WD vehicles can be arranged based on route requirement and availability." },
+  { category: "Vehicle Rental", question: "Can I rent a vehicle only for Surkhet local travel?", answer: "Yes. Local sightseeing, airport pickup/drop, and short city travel can be arranged." },
+  { category: "Vehicle Rental", question: "Is driver included?", answer: "Driver availability depends on the vehicle and route, but driver-supported rental is recommended for most Karnali routes." },
+  { category: "Vehicle Rental", question: "How is rental cost calculated?", answer: "Rental cost depends on vehicle type, route, number of days, travel date, road condition, and driver/fuel arrangement." },
+  { category: "Vehicle Rental", question: "Can I book vehicle by WhatsApp?", answer: "Yes. Send route, date, passenger count, pickup point, and vehicle preference on WhatsApp for a quote." },
+  { category: "Packages", question: "Are package prices fixed?", answer: "Not always. Many Karnali packages require custom quotes because route condition, vehicle, group size, and accommodation level affect cost." },
+  { category: "Packages", question: "Can itinerary be customized?", answer: "Yes. Itineraries can be adjusted for comfort, budget, travel style, group type, and available days." },
+  { category: "Packages", question: "What should I pack for Karnali travel?", answer: "Warm layers, comfortable shoes, personal medicine, power bank, reusable water bottle, and flexible travel mindset are helpful." },
+  { category: "Packages", question: "Are Karnali roads difficult?", answer: "Some routes can be challenging. Vehicle choice, season, and driver experience are important." },
+  { category: "Packages", question: "Can families travel to Rara?", answer: "Yes, families can travel to Rara with a comfortable itinerary, suitable vehicle, and realistic pacing." },
+  { category: "Packages", question: "Do you support student tours?", answer: "Yes. Student tours can be planned with group vehicles, educational stops, and clear organizer communication." },
+];
