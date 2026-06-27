@@ -1,4 +1,5 @@
 import { AdventureCategories } from "@/components/home/AdventureCategories";
+import { AdventureActivitiesSection } from "@/components/home/AdventureActivitiesSection";
 import { DestinationHighlights } from "@/components/home/DestinationHighlights";
 import { Hero } from "@/components/home/Hero";
 import { GalleryPreview } from "@/components/home/GalleryPreview";
@@ -17,6 +18,7 @@ export default async function HomePage() {
       <Hero heroTitle={homeContent?.heroTitle} heroSubtitle={homeContent?.heroSubtitle} heroImage={homeContent?.heroImage} />
       <AdventureCategories />
       <PopularPackages />
+      <AdventureActivitiesSection />
       <VehicleRentalPreview />
       <WhyChoose />
       <DestinationHighlights />

@@ -1,44 +1,24 @@
-import Link from "next/link";
-import { DISPLAY_PHONE, TEL_PHONE } from "@/lib/constants";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function WhatsAppFloat() {
+  const planningUrl = getWhatsAppUrl("Hello Bheri Karnali Tours & Travels, I need help planning a Karnali trip.");
+
   return (
-    <>
-      <div className="fixed bottom-5 right-5 z-50 hidden lg:block">
-        <div className="mb-3 w-72 rounded-lg border border-emeraldDeep/10 bg-white p-4 shadow-premium">
-        <p className="text-sm font-black text-navyInk">Planning Karnali trip?</p>
-        <p className="mt-1 text-xs leading-5 text-navyInk/65">Message or call for route, vehicle, and price guidance.</p>
-        <div className="mt-3 grid grid-cols-2 gap-2">
-          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#25d366] px-3 py-2 text-center text-xs font-black text-white">
-            WhatsApp
-          </a>
-          <a href={`tel:${TEL_PHONE}`} className="rounded-full bg-navyInk px-3 py-2 text-center text-xs font-black text-white">
-            Call {DISPLAY_PHONE}
-          </a>
-        </div>
+    <div className="group fixed bottom-5 right-5 z-50">
+      <div className="pointer-events-none absolute bottom-16 right-0 w-64 translate-y-2 rounded-lg border border-navyInk/10 bg-white px-4 py-3 text-sm shadow-premium opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 max-sm:hidden">
+        <p className="font-black text-navyInk">Need help planning a Karnali trip?</p>
+        <p className="mt-1 text-xs leading-5 text-navyInk/65">Message us on WhatsApp.</p>
       </div>
       <a
-        href={getWhatsAppUrl()}
+        href={planningUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp Bheri Karnali Tours and Travels"
-        className="ml-auto grid h-14 w-14 place-items-center rounded-full bg-[#25d366] text-xl font-black text-white shadow-[0_18px_45px_rgba(37,211,102,0.35)] hover:-translate-y-1"
+        className="relative grid h-14 w-14 place-items-center rounded-full bg-[#25d366] text-lg font-black text-white shadow-[0_18px_45px_rgba(37,211,102,0.35)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,211,102,0.42)]"
       >
+        <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25d366]/25" />
         WA
       </a>
-      </div>
-      <div className="fixed inset-x-3 bottom-3 z-50 grid grid-cols-3 gap-2 rounded-lg border border-navyInk/10 bg-white/95 p-2 shadow-premium backdrop-blur lg:hidden">
-        <a href={`tel:${TEL_PHONE}`} aria-label={`Call ${DISPLAY_PHONE}`} className="rounded-lg bg-navyInk px-3 py-3 text-center text-xs font-black text-white">
-          Call
-        </a>
-        <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat" className="rounded-lg bg-[#25d366] px-3 py-3 text-center text-xs font-black text-white">
-          WhatsApp
-        </a>
-        <Link href="/booking" aria-label="Open booking inquiry form" className="rounded-lg bg-saffron px-3 py-3 text-center text-xs font-black text-navyInk">
-          Book
-        </Link>
-      </div>
-    </>
+    </div>
   );
 }

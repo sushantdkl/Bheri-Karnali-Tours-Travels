@@ -40,6 +40,7 @@ export async function Footer() {
                 {link.label}
               </Link>
             ))}
+            <Link href="/booking?activity=hiking" className="text-sm text-white/70 hover:text-saffron">Adventure Activities</Link>
             <Link href="/booking" className="text-sm text-white/70 hover:text-saffron">Booking Inquiry</Link>
             <Link href="/gallery" className="text-sm text-white/70 hover:text-saffron">Gallery</Link>
             <Link href="/privacy-policy" className="text-sm text-white/70 hover:text-saffron">Privacy Policy</Link>

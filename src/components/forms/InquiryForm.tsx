@@ -16,13 +16,29 @@ const contacts = [
   { label: "Email", value: "EMAIL" },
 ] as const;
 
+const activityDefaults: Record<string, { destination: string; message: string }> = {
+  hiking: {
+    destination: "Hiking / Trekking in Karnali",
+    message: "I want to plan a hiking or trekking trip in Karnali. Please share route, guide, permit, transport, safety, and latest price guidance.",
+  },
+  paragliding: {
+    destination: "Paragliding in Surkhet",
+    message: "I want to ask about paragliding in Surkhet. Please share today's rate, operator availability, weather condition, and photo/video options.",
+  },
+  rafting: {
+    destination: "Karnali River Rafting",
+    message: "I want to ask about Karnali river rafting. Please share latest route, group size, safety team, transport, and quote details.",
+  },
+};
+
 type ApiResult = {
   success: boolean;
   message: string;
   errors?: Record<string, string[]>;
 };
 
-export function InquiryForm() {
+export function InquiryForm({ activity = "" }: { activity?: string }) {
+  const activityDefault = activityDefaults[activity];
   const [status, setStatus] = useState<ApiResult | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -77,17 +93,20 @@ export function InquiryForm() {
       </div>
       <input className="input-field" name="email" type="email" placeholder="Email optional" />
       <div className="grid gap-4 sm:grid-cols-2">
-        <select className="input-field" name="inquiryType" required defaultValue="">
+        <select className="input-field" name="inquiryType" required defaultValue={activityDefault ? "CUSTOM_TRIP" : ""}>
           <option value="" disabled>Trip type</option>
+          <option value="CUSTOM_TRIP">Hiking / Trekking</option>
+          <option value="CUSTOM_TRIP">Paragliding</option>
+          <option value="CUSTOM_TRIP">Rafting</option>
           {tripTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}
         </select>
-        <input className="input-field" name="destination" placeholder="Destination" required />
+        <input className="input-field" name="destination" placeholder="Destination" required defaultValue={activityDefault?.destination || ""} />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <input className="input-field" name="travelDate" type="date" required />
         <input className="input-field" name="numberOfPeople" type="number" min="1" placeholder="Number of people" required />
       </div>
-      <textarea className="input-field min-h-32" name="message" placeholder="Tell us your route, budget, vehicle need, or comfort preference" required />
+      <textarea className="input-field min-h-32" name="message" placeholder="Tell us your route, budget, vehicle need, or comfort preference" required defaultValue={activityDefault?.message || ""} />
       <div>
         <p className="mb-3 text-sm font-bold text-navyInk">Preferred contact method</p>
         <div className="flex flex-wrap gap-3">

@@ -9,7 +9,13 @@ export const metadata: Metadata = {
     "Send a booking inquiry for Karnali tours, Rara Lake tour, Phoksundo Lake tour, Surkhet vehicle rental, and custom Nepal adventure tours.",
 };
 
-export default function BookingPage() {
+type PageProps = {
+  searchParams: Promise<{ activity?: string }>;
+};
+
+export default async function BookingPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+
   return (
     <section className="section-pad section-gradient">
       <div className="container-main grid gap-10 lg:grid-cols-[0.86fr_1.14fr]">
@@ -30,7 +36,7 @@ export default function BookingPage() {
             </div>
           </div>
         </div>
-        <InquiryForm />
+        <InquiryForm activity={params.activity} />
       </div>
     </section>
   );
